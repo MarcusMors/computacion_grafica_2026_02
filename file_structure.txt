@@ -1,0 +1,868 @@
+.
+├── .gitignore
+├── LabCompiler_Analysis_and_Migration_Guide.md
+├── LabCompiler_Questions.md
+├── _GIT.bat
+├── _SET_PATHS_x64.bat
+├── _SET_PATHS_x64.ps1
+├── _SNAPSHOT.bat
+├── _SNAPSHOT.ps1
+├── _UPDATE_COMPONENTS.bat
+├── _patch_glad_header.py
+├── anki_computer_graphic.txt
+├── claude_labcompiler_report.md
+├── file_structure.txt
+├── glfw-master
+│   ├── .mailmap
+│   ├── CMake
+│   │   ├── GenerateMappings.cmake
+│   │   ├── Info.plist.in
+│   │   ├── cmake_uninstall.cmake.in
+│   │   ├── glfw3.pc.in
+│   │   ├── glfw3Config.cmake.in
+│   │   ├── i686-w64-mingw32-clang.cmake
+│   │   ├── i686-w64-mingw32.cmake
+│   │   ├── modules
+│   │   │   ├── FindEpollShim.cmake
+│   │   │   └── FindOSMesa.cmake
+│   │   ├── x86_64-w64-mingw32-clang.cmake
+│   │   └── x86_64-w64-mingw32.cmake
+│   ├── CMakeLists.txt
+│   ├── CONTRIBUTORS.md
+│   ├── LICENSE.md
+│   ├── OwnProjects
+│   │   ├── CMakeLists.txt
+│   │   ├── Control_1
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── fragment.glsl
+│   │   │   ├── fragment_border.glsl
+│   │   │   ├── fragment_interior.glsl
+│   │   │   ├── fragment_red.glsl
+│   │   │   ├── main.cpp
+│   │   │   ├── main.cpp.txt
+│   │   │   └── vertex.glsl
+│   │   ├── Control_1.zip
+│   │   ├── Project_00
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── fragment.glsl
+│   │   │   ├── main.cpp
+│   │   │   └── vertex.glsl
+│   │   ├── Project_01
+│   │   │   ├── CMakeLists.txt
+│   │   │   └── main.cpp
+│   │   ├── Project_02
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── learnopengl
+│   │   │   │   ├── 3.3.shader.fs
+│   │   │   │   ├── 3.3.shader.vs
+│   │   │   │   └── shader_s.h
+│   │   │   └── main.cpp
+│   │   ├── Project_03
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── learnopengl
+│   │   │   │   ├── 3.3.shader.fs
+│   │   │   │   ├── 3.3.shader.vs
+│   │   │   │   ├── awesomeface.png
+│   │   │   │   ├── container.jpg
+│   │   │   │   ├── shader_s.h
+│   │   │   │   └── wall.jpg
+│   │   │   ├── main.cpp
+│   │   │   └── stb_image.h
+│   │   ├── Project_06
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── fragment.glsl
+│   │   │   ├── main.cpp
+│   │   │   ├── transcribed.txt
+│   │   │   └── vertex.glsl
+│   │   ├── Project_07
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── fragment.glsl
+│   │   │   ├── main.cpp
+│   │   │   ├── transcribed.txt
+│   │   │   └── vertex.glsl
+│   │   ├── Project_07_draw_square
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── fragment.glsl
+│   │   │   ├── main.cpp
+│   │   │   ├── transcribed.txt
+│   │   │   └── vertex.glsl
+│   │   ├── Project_07_draw_square_eskeleton
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── DESIGN_VAO_EBO.md
+│   │   │   ├── fragment.glsl
+│   │   │   ├── main.cpp
+│   │   │   └── vertex.glsl
+│   │   ├── Project_07_draw_square_eskeleton_new_lib
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── fragment.glsl
+│   │   │   ├── fragment_red.glsl
+│   │   │   ├── main.cpp
+│   │   │   └── vertex.glsl
+│   │   ├── Project_07_draw_square_eskeleton_new_lib_paralel
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── fragment.glsl
+│   │   │   ├── fragment_border.glsl
+│   │   │   ├── fragment_red.glsl
+│   │   │   ├── image.png
+│   │   │   ├── main.cpp
+│   │   │   └── vertex.glsl
+│   │   ├── Project_08_pizza
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── fragment.glsl
+│   │   │   ├── fragment_border.glsl
+│   │   │   ├── fragment_interior.glsl
+│   │   │   ├── fragment_red.glsl
+│   │   │   ├── image.png
+│   │   │   ├── main.cpp
+│   │   │   ├── main.cpp.txt
+│   │   │   ├── prompt.txt
+│   │   │   └── vertex.glsl
+│   │   ├── Project_09_keyboard_input
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── fragment.glsl
+│   │   │   ├── main.cpp
+│   │   │   └── vertex.glsl
+│   │   ├── Project_10_pyramid
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── fragment.glsl
+│   │   │   ├── fragment_border.glsl
+│   │   │   ├── main.cpp
+│   │   │   └── vertex.glsl
+│   │   ├── Project_11_3D_figures
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── Castle.hpp
+│   │   │   └── main.cpp
+│   │   ├── Project_12_3D_figures_animated
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── Castle.hpp
+│   │   │   └── main.cpp
+│   │   ├── Project_12_3D_figures_animated.rar
+│   │   ├── Project_12_3D_figures_animated.zip
+│   │   ├── Project_13_3D_figures_animated
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── Castle.hpp
+│   │   │   └── main.cpp
+│   │   ├── Rasterization_visualization
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── fragment.glsl
+│   │   │   ├── main.cpp
+│   │   │   └── vertex.glsl
+│   │   ├── a
+│   │   │   └── Control_1
+│   │   │       ├── _cpp.cpp
+│   │   │       ├── _cpp.hpp
+│   │   │       ├── fragment.glsl
+│   │   │       ├── main.cpp
+│   │   │       └── vertex.glsl
+│   │   ├── glfw.icns
+│   │   ├── glfw.ico
+│   │   ├── glfw.rc
+│   │   ├── hw0-glfw
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── freeimage
+│   │   │   │   ├── FreeImage.h
+│   │   │   │   ├── lib
+│   │   │   │   ├── stb.h
+│   │   │   │   ├── stb_c_lexer.h
+│   │   │   │   ├── stb_connected_components.h
+│   │   │   │   ├── stb_divide.h
+│   │   │   │   ├── stb_ds.h
+│   │   │   │   ├── stb_dxt.h
+│   │   │   │   ├── stb_easy_font.h
+│   │   │   │   ├── stb_herringbone_wang_tile.h
+│   │   │   │   ├── stb_image.h
+│   │   │   │   ├── stb_image_resize.h
+│   │   │   │   ├── stb_image_write.h
+│   │   │   │   ├── stb_include.h
+│   │   │   │   ├── stb_leakcheck.h
+│   │   │   │   ├── stb_perlin.h
+│   │   │   │   ├── stb_rect_pack.h
+│   │   │   │   ├── stb_sprintf.h
+│   │   │   │   ├── stb_textedit.h
+│   │   │   │   ├── stb_tilemap_editor.h
+│   │   │   │   ├── stb_truetype.h
+│   │   │   │   ├── stb_vorbis.c
+│   │   │   │   ├── stb_voxel_render.h
+│   │   │   │   └── stretchy_buffer.h
+│   │   │   ├── geometry3.h
+│   │   │   ├── hw0_glfw.cpp
+│   │   │   ├── models
+│   │   │   ├── shaders
+│   │   │   │   ├── light.frag.glsl
+│   │   │   │   └── light.vert.glsl
+│   │   │   ├── shaders.cpp
+│   │   │   ├── shaders.h
+│   │   │   ├── stb_image.h
+│   │   │   ├── stb_image_write.h
+│   │   │   └── textures
+│   │   │       └── wood.ppm
+│   │   └── max_opengl_supported
+│   │       ├── CMakeLists.txt
+│   │       ├── fragment.glsl
+│   │       ├── main.cpp
+│   │       └── vertex.glsl
+│   ├── README.md
+│   ├── _GENERATE_MINGW_x64.bat
+│   ├── bin
+│   ├── deps
+│   │   ├── SOIL2
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── LICENSE
+│   │   │   ├── README.md
+│   │   │   ├── cmake
+│   │   │   │   └── soil2-config.cmake.in
+│   │   │   └── src
+│   │   │       ├── SOIL2
+│   │   │       │   ├── SOIL2.c
+│   │   │       │   ├── SOIL2.h
+│   │   │       │   ├── image_DXT.c
+│   │   │       │   ├── image_DXT.h
+│   │   │       │   ├── image_array.c
+│   │   │       │   ├── image_array.h
+│   │   │       │   ├── image_array_helper.h
+│   │   │       │   ├── image_helper.c
+│   │   │       │   ├── image_helper.h
+│   │   │       │   ├── pkm_helper.h
+│   │   │       │   ├── pvr_helper.h
+│   │   │       │   ├── stb_image.h
+│   │   │       │   ├── stb_image_write.h
+│   │   │       │   ├── stbi_DDS.h
+│   │   │       │   ├── stbi_DDS_c.h
+│   │   │       │   ├── stbi_ext.h
+│   │   │       │   ├── stbi_ext_c.h
+│   │   │       │   ├── stbi_pkm.h
+│   │   │       │   ├── stbi_pkm_c.h
+│   │   │       │   ├── stbi_pvr.h
+│   │   │       │   ├── stbi_pvr_c.h
+│   │   │       │   ├── stbi_qoi.h
+│   │   │       │   ├── stbi_qoi_c.h
+│   │   │       │   ├── stbi_qoi_write.h
+│   │   │       │   ├── wfETC.c
+│   │   │       │   └── wfETC.h
+│   │   │       ├── common
+│   │   │       │   ├── common.cpp
+│   │   │       │   └── common.hpp
+│   │   │       ├── perf_test
+│   │   │       │   └── test_perf_SOIL2.cpp
+│   │   │       └── test
+│   │   │           ├── generate_DDS_fixtures.cpp
+│   │   │           ├── generate_mobile_compressed_fixtures.cpp
+│   │   │           ├── test_DDS.cpp
+│   │   │           ├── test_Grid.cpp
+│   │   │           ├── test_HDR.cpp
+│   │   │           ├── test_MobileCompressed.cpp
+│   │   │           └── test_SOIL2.cpp
+│   │   ├── filesystem.h
+│   │   ├── getopt.c
+│   │   ├── getopt.h
+│   │   ├── glad
+│   │   │   ├── gl.h
+│   │   │   └── glad.h
+│   │   ├── glm
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── common.hpp
+│   │   │   ├── detail
+│   │   │   │   ├── _features.hpp
+│   │   │   │   ├── _fixes.hpp
+│   │   │   │   ├── _noise.hpp
+│   │   │   │   ├── _swizzle.hpp
+│   │   │   │   ├── _swizzle_func.hpp
+│   │   │   │   ├── _vectorize.hpp
+│   │   │   │   ├── compute_common.hpp
+│   │   │   │   ├── compute_vector_decl.hpp
+│   │   │   │   ├── compute_vector_relational.hpp
+│   │   │   │   ├── func_common.inl
+│   │   │   │   ├── func_common_simd.inl
+│   │   │   │   ├── func_exponential.inl
+│   │   │   │   ├── func_exponential_simd.inl
+│   │   │   │   ├── func_geometric.inl
+│   │   │   │   ├── func_geometric_simd.inl
+│   │   │   │   ├── func_integer.inl
+│   │   │   │   ├── func_integer_simd.inl
+│   │   │   │   ├── func_matrix.inl
+│   │   │   │   ├── func_matrix_simd.inl
+│   │   │   │   ├── func_packing.inl
+│   │   │   │   ├── func_packing_simd.inl
+│   │   │   │   ├── func_trigonometric.inl
+│   │   │   │   ├── func_trigonometric_simd.inl
+│   │   │   │   ├── func_vector_relational.inl
+│   │   │   │   ├── func_vector_relational_simd.inl
+│   │   │   │   ├── glm.cpp
+│   │   │   │   ├── qualifier.hpp
+│   │   │   │   ├── setup.hpp
+│   │   │   │   ├── type_float.hpp
+│   │   │   │   ├── type_half.hpp
+│   │   │   │   ├── type_half.inl
+│   │   │   │   ├── type_mat2x2.hpp
+│   │   │   │   ├── type_mat2x2.inl
+│   │   │   │   ├── type_mat2x3.hpp
+│   │   │   │   ├── type_mat2x3.inl
+│   │   │   │   ├── type_mat2x4.hpp
+│   │   │   │   ├── type_mat2x4.inl
+│   │   │   │   ├── type_mat3x2.hpp
+│   │   │   │   ├── type_mat3x2.inl
+│   │   │   │   ├── type_mat3x3.hpp
+│   │   │   │   ├── type_mat3x3.inl
+│   │   │   │   ├── type_mat3x4.hpp
+│   │   │   │   ├── type_mat3x4.inl
+│   │   │   │   ├── type_mat4x2.hpp
+│   │   │   │   ├── type_mat4x2.inl
+│   │   │   │   ├── type_mat4x3.hpp
+│   │   │   │   ├── type_mat4x3.inl
+│   │   │   │   ├── type_mat4x4.hpp
+│   │   │   │   ├── type_mat4x4.inl
+│   │   │   │   ├── type_mat4x4_simd.inl
+│   │   │   │   ├── type_quat.hpp
+│   │   │   │   ├── type_quat.inl
+│   │   │   │   ├── type_quat_simd.inl
+│   │   │   │   ├── type_vec1.hpp
+│   │   │   │   ├── type_vec1.inl
+│   │   │   │   ├── type_vec2.hpp
+│   │   │   │   ├── type_vec2.inl
+│   │   │   │   ├── type_vec3.hpp
+│   │   │   │   ├── type_vec3.inl
+│   │   │   │   ├── type_vec4.hpp
+│   │   │   │   ├── type_vec4.inl
+│   │   │   │   └── type_vec4_simd.inl
+│   │   │   ├── exponential.hpp
+│   │   │   ├── ext
+│   │   │   │   ├── _matrix_vectorize.hpp
+│   │   │   │   ├── matrix_clip_space.hpp
+│   │   │   │   ├── matrix_clip_space.inl
+│   │   │   │   ├── matrix_common.hpp
+│   │   │   │   ├── matrix_common.inl
+│   │   │   │   ├── matrix_double2x2.hpp
+│   │   │   │   ├── matrix_double2x2_precision.hpp
+│   │   │   │   ├── matrix_double2x3.hpp
+│   │   │   │   ├── matrix_double2x3_precision.hpp
+│   │   │   │   ├── matrix_double2x4.hpp
+│   │   │   │   ├── matrix_double2x4_precision.hpp
+│   │   │   │   ├── matrix_double3x2.hpp
+│   │   │   │   ├── matrix_double3x2_precision.hpp
+│   │   │   │   ├── matrix_double3x3.hpp
+│   │   │   │   ├── matrix_double3x3_precision.hpp
+│   │   │   │   ├── matrix_double3x4.hpp
+│   │   │   │   ├── matrix_double3x4_precision.hpp
+│   │   │   │   ├── matrix_double4x2.hpp
+│   │   │   │   ├── matrix_double4x2_precision.hpp
+│   │   │   │   ├── matrix_double4x3.hpp
+│   │   │   │   ├── matrix_double4x3_precision.hpp
+│   │   │   │   ├── matrix_double4x4.hpp
+│   │   │   │   ├── matrix_double4x4_precision.hpp
+│   │   │   │   ├── matrix_float2x2.hpp
+│   │   │   │   ├── matrix_float2x2_precision.hpp
+│   │   │   │   ├── matrix_float2x3.hpp
+│   │   │   │   ├── matrix_float2x3_precision.hpp
+│   │   │   │   ├── matrix_float2x4.hpp
+│   │   │   │   ├── matrix_float2x4_precision.hpp
+│   │   │   │   ├── matrix_float3x2.hpp
+│   │   │   │   ├── matrix_float3x2_precision.hpp
+│   │   │   │   ├── matrix_float3x3.hpp
+│   │   │   │   ├── matrix_float3x3_precision.hpp
+│   │   │   │   ├── matrix_float3x4.hpp
+│   │   │   │   ├── matrix_float3x4_precision.hpp
+│   │   │   │   ├── matrix_float4x2.hpp
+│   │   │   │   ├── matrix_float4x2_precision.hpp
+│   │   │   │   ├── matrix_float4x3.hpp
+│   │   │   │   ├── matrix_float4x3_precision.hpp
+│   │   │   │   ├── matrix_float4x4.hpp
+│   │   │   │   ├── matrix_float4x4_precision.hpp
+│   │   │   │   ├── matrix_int2x2.hpp
+│   │   │   │   ├── matrix_int2x2_sized.hpp
+│   │   │   │   ├── matrix_int2x3.hpp
+│   │   │   │   ├── matrix_int2x3_sized.hpp
+│   │   │   │   ├── matrix_int2x4.hpp
+│   │   │   │   ├── matrix_int2x4_sized.hpp
+│   │   │   │   ├── matrix_int3x2.hpp
+│   │   │   │   ├── matrix_int3x2_sized.hpp
+│   │   │   │   ├── matrix_int3x3.hpp
+│   │   │   │   ├── matrix_int3x3_sized.hpp
+│   │   │   │   ├── matrix_int3x4.hpp
+│   │   │   │   ├── matrix_int3x4_sized.hpp
+│   │   │   │   ├── matrix_int4x2.hpp
+│   │   │   │   ├── matrix_int4x2_sized.hpp
+│   │   │   │   ├── matrix_int4x3.hpp
+│   │   │   │   ├── matrix_int4x3_sized.hpp
+│   │   │   │   ├── matrix_int4x4.hpp
+│   │   │   │   ├── matrix_int4x4_sized.hpp
+│   │   │   │   ├── matrix_integer.hpp
+│   │   │   │   ├── matrix_integer.inl
+│   │   │   │   ├── matrix_projection.hpp
+│   │   │   │   ├── matrix_projection.inl
+│   │   │   │   ├── matrix_relational.hpp
+│   │   │   │   ├── matrix_relational.inl
+│   │   │   │   ├── matrix_transform.hpp
+│   │   │   │   ├── matrix_transform.inl
+│   │   │   │   ├── matrix_uint2x2.hpp
+│   │   │   │   ├── matrix_uint2x2_sized.hpp
+│   │   │   │   ├── matrix_uint2x3.hpp
+│   │   │   │   ├── matrix_uint2x3_sized.hpp
+│   │   │   │   ├── matrix_uint2x4.hpp
+│   │   │   │   ├── matrix_uint2x4_sized.hpp
+│   │   │   │   ├── matrix_uint3x2.hpp
+│   │   │   │   ├── matrix_uint3x2_sized.hpp
+│   │   │   │   ├── matrix_uint3x3.hpp
+│   │   │   │   ├── matrix_uint3x3_sized.hpp
+│   │   │   │   ├── matrix_uint3x4.hpp
+│   │   │   │   ├── matrix_uint3x4_sized.hpp
+│   │   │   │   ├── matrix_uint4x2.hpp
+│   │   │   │   ├── matrix_uint4x2_sized.hpp
+│   │   │   │   ├── matrix_uint4x3.hpp
+│   │   │   │   ├── matrix_uint4x3_sized.hpp
+│   │   │   │   ├── matrix_uint4x4.hpp
+│   │   │   │   ├── matrix_uint4x4_sized.hpp
+│   │   │   │   ├── quaternion_common.hpp
+│   │   │   │   ├── quaternion_common.inl
+│   │   │   │   ├── quaternion_common_simd.inl
+│   │   │   │   ├── quaternion_double.hpp
+│   │   │   │   ├── quaternion_double_precision.hpp
+│   │   │   │   ├── quaternion_exponential.hpp
+│   │   │   │   ├── quaternion_exponential.inl
+│   │   │   │   ├── quaternion_float.hpp
+│   │   │   │   ├── quaternion_float_precision.hpp
+│   │   │   │   ├── quaternion_geometric.hpp
+│   │   │   │   ├── quaternion_geometric.inl
+│   │   │   │   ├── quaternion_relational.hpp
+│   │   │   │   ├── quaternion_relational.inl
+│   │   │   │   ├── quaternion_transform.hpp
+│   │   │   │   ├── quaternion_transform.inl
+│   │   │   │   ├── quaternion_trigonometric.hpp
+│   │   │   │   ├── quaternion_trigonometric.inl
+│   │   │   │   ├── scalar_common.hpp
+│   │   │   │   ├── scalar_common.inl
+│   │   │   │   ├── scalar_constants.hpp
+│   │   │   │   ├── scalar_constants.inl
+│   │   │   │   ├── scalar_int_sized.hpp
+│   │   │   │   ├── scalar_integer.hpp
+│   │   │   │   ├── scalar_integer.inl
+│   │   │   │   ├── scalar_packing.hpp
+│   │   │   │   ├── scalar_packing.inl
+│   │   │   │   ├── scalar_reciprocal.hpp
+│   │   │   │   ├── scalar_reciprocal.inl
+│   │   │   │   ├── scalar_relational.hpp
+│   │   │   │   ├── scalar_relational.inl
+│   │   │   │   ├── scalar_uint_sized.hpp
+│   │   │   │   ├── scalar_ulp.hpp
+│   │   │   │   ├── scalar_ulp.inl
+│   │   │   │   ├── vector_bool1.hpp
+│   │   │   │   ├── vector_bool1_precision.hpp
+│   │   │   │   ├── vector_bool2.hpp
+│   │   │   │   ├── vector_bool2_precision.hpp
+│   │   │   │   ├── vector_bool3.hpp
+│   │   │   │   ├── vector_bool3_precision.hpp
+│   │   │   │   ├── vector_bool4.hpp
+│   │   │   │   ├── vector_bool4_precision.hpp
+│   │   │   │   ├── vector_common.hpp
+│   │   │   │   ├── vector_common.inl
+│   │   │   │   ├── vector_double1.hpp
+│   │   │   │   ├── vector_double1_precision.hpp
+│   │   │   │   ├── vector_double2.hpp
+│   │   │   │   ├── vector_double2_precision.hpp
+│   │   │   │   ├── vector_double3.hpp
+│   │   │   │   ├── vector_double3_precision.hpp
+│   │   │   │   ├── vector_double4.hpp
+│   │   │   │   ├── vector_double4_precision.hpp
+│   │   │   │   ├── vector_float1.hpp
+│   │   │   │   ├── vector_float1_precision.hpp
+│   │   │   │   ├── vector_float2.hpp
+│   │   │   │   ├── vector_float2_precision.hpp
+│   │   │   │   ├── vector_float3.hpp
+│   │   │   │   ├── vector_float3_precision.hpp
+│   │   │   │   ├── vector_float4.hpp
+│   │   │   │   ├── vector_float4_precision.hpp
+│   │   │   │   ├── vector_int1.hpp
+│   │   │   │   ├── vector_int1_sized.hpp
+│   │   │   │   ├── vector_int2.hpp
+│   │   │   │   ├── vector_int2_sized.hpp
+│   │   │   │   ├── vector_int3.hpp
+│   │   │   │   ├── vector_int3_sized.hpp
+│   │   │   │   ├── vector_int4.hpp
+│   │   │   │   ├── vector_int4_sized.hpp
+│   │   │   │   ├── vector_integer.hpp
+│   │   │   │   ├── vector_integer.inl
+│   │   │   │   ├── vector_packing.hpp
+│   │   │   │   ├── vector_packing.inl
+│   │   │   │   ├── vector_reciprocal.hpp
+│   │   │   │   ├── vector_reciprocal.inl
+│   │   │   │   ├── vector_relational.hpp
+│   │   │   │   ├── vector_relational.inl
+│   │   │   │   ├── vector_uint1.hpp
+│   │   │   │   ├── vector_uint1_sized.hpp
+│   │   │   │   ├── vector_uint2.hpp
+│   │   │   │   ├── vector_uint2_sized.hpp
+│   │   │   │   ├── vector_uint3.hpp
+│   │   │   │   ├── vector_uint3_sized.hpp
+│   │   │   │   ├── vector_uint4.hpp
+│   │   │   │   ├── vector_uint4_sized.hpp
+│   │   │   │   ├── vector_ulp.hpp
+│   │   │   │   └── vector_ulp.inl
+│   │   │   ├── ext.hpp
+│   │   │   ├── fwd.hpp
+│   │   │   ├── geometric.hpp
+│   │   │   ├── glm.cppm
+│   │   │   ├── glm.hpp
+│   │   │   ├── gtc
+│   │   │   │   ├── bitfield.hpp
+│   │   │   │   ├── bitfield.inl
+│   │   │   │   ├── color_space.hpp
+│   │   │   │   ├── color_space.inl
+│   │   │   │   ├── constants.hpp
+│   │   │   │   ├── constants.inl
+│   │   │   │   ├── epsilon.hpp
+│   │   │   │   ├── epsilon.inl
+│   │   │   │   ├── integer.hpp
+│   │   │   │   ├── integer.inl
+│   │   │   │   ├── matrix_access.hpp
+│   │   │   │   ├── matrix_access.inl
+│   │   │   │   ├── matrix_integer.hpp
+│   │   │   │   ├── matrix_inverse.hpp
+│   │   │   │   ├── matrix_inverse.inl
+│   │   │   │   ├── matrix_transform.hpp
+│   │   │   │   ├── matrix_transform.inl
+│   │   │   │   ├── noise.hpp
+│   │   │   │   ├── noise.inl
+│   │   │   │   ├── packing.hpp
+│   │   │   │   ├── packing.inl
+│   │   │   │   ├── quaternion.hpp
+│   │   │   │   ├── quaternion.inl
+│   │   │   │   ├── quaternion_simd.inl
+│   │   │   │   ├── random.hpp
+│   │   │   │   ├── random.inl
+│   │   │   │   ├── reciprocal.hpp
+│   │   │   │   ├── round.hpp
+│   │   │   │   ├── round.inl
+│   │   │   │   ├── type_aligned.hpp
+│   │   │   │   ├── type_precision.hpp
+│   │   │   │   ├── type_precision.inl
+│   │   │   │   ├── type_ptr.hpp
+│   │   │   │   ├── type_ptr.inl
+│   │   │   │   ├── ulp.hpp
+│   │   │   │   ├── ulp.inl
+│   │   │   │   └── vec1.hpp
+│   │   │   ├── gtx
+│   │   │   │   ├── associated_min_max.hpp
+│   │   │   │   ├── associated_min_max.inl
+│   │   │   │   ├── bit.hpp
+│   │   │   │   ├── bit.inl
+│   │   │   │   ├── closest_point.hpp
+│   │   │   │   ├── closest_point.inl
+│   │   │   │   ├── color_encoding.hpp
+│   │   │   │   ├── color_encoding.inl
+│   │   │   │   ├── color_space.hpp
+│   │   │   │   ├── color_space.inl
+│   │   │   │   ├── color_space_YCoCg.hpp
+│   │   │   │   ├── color_space_YCoCg.inl
+│   │   │   │   ├── common.hpp
+│   │   │   │   ├── common.inl
+│   │   │   │   ├── compatibility.hpp
+│   │   │   │   ├── compatibility.inl
+│   │   │   │   ├── component_wise.hpp
+│   │   │   │   ├── component_wise.inl
+│   │   │   │   ├── dual_quaternion.hpp
+│   │   │   │   ├── dual_quaternion.inl
+│   │   │   │   ├── easing.hpp
+│   │   │   │   ├── easing.inl
+│   │   │   │   ├── euler_angles.hpp
+│   │   │   │   ├── euler_angles.inl
+│   │   │   │   ├── extend.hpp
+│   │   │   │   ├── extend.inl
+│   │   │   │   ├── extended_min_max.hpp
+│   │   │   │   ├── extended_min_max.inl
+│   │   │   │   ├── exterior_product.hpp
+│   │   │   │   ├── exterior_product.inl
+│   │   │   │   ├── fast_exponential.hpp
+│   │   │   │   ├── fast_exponential.inl
+│   │   │   │   ├── fast_square_root.hpp
+│   │   │   │   ├── fast_square_root.inl
+│   │   │   │   ├── fast_trigonometry.hpp
+│   │   │   │   ├── fast_trigonometry.inl
+│   │   │   │   ├── float_notmalize.inl
+│   │   │   │   ├── functions.hpp
+│   │   │   │   ├── functions.inl
+│   │   │   │   ├── gradient_paint.hpp
+│   │   │   │   ├── gradient_paint.inl
+│   │   │   │   ├── handed_coordinate_space.hpp
+│   │   │   │   ├── handed_coordinate_space.inl
+│   │   │   │   ├── hash.hpp
+│   │   │   │   ├── hash.inl
+│   │   │   │   ├── integer.hpp
+│   │   │   │   ├── integer.inl
+│   │   │   │   ├── intersect.hpp
+│   │   │   │   ├── intersect.inl
+│   │   │   │   ├── io.hpp
+│   │   │   │   ├── io.inl
+│   │   │   │   ├── log_base.hpp
+│   │   │   │   ├── log_base.inl
+│   │   │   │   ├── matrix_cross_product.hpp
+│   │   │   │   ├── matrix_cross_product.inl
+│   │   │   │   ├── matrix_decompose.hpp
+│   │   │   │   ├── matrix_decompose.inl
+│   │   │   │   ├── matrix_factorisation.hpp
+│   │   │   │   ├── matrix_factorisation.inl
+│   │   │   │   ├── matrix_interpolation.hpp
+│   │   │   │   ├── matrix_interpolation.inl
+│   │   │   │   ├── matrix_major_storage.hpp
+│   │   │   │   ├── matrix_major_storage.inl
+│   │   │   │   ├── matrix_operation.hpp
+│   │   │   │   ├── matrix_operation.inl
+│   │   │   │   ├── matrix_query.hpp
+│   │   │   │   ├── matrix_query.inl
+│   │   │   │   ├── matrix_transform_2d.hpp
+│   │   │   │   ├── matrix_transform_2d.inl
+│   │   │   │   ├── mixed_product.hpp
+│   │   │   │   ├── mixed_product.inl
+│   │   │   │   ├── norm.hpp
+│   │   │   │   ├── norm.inl
+│   │   │   │   ├── normal.hpp
+│   │   │   │   ├── normal.inl
+│   │   │   │   ├── normalize_dot.hpp
+│   │   │   │   ├── normalize_dot.inl
+│   │   │   │   ├── number_precision.hpp
+│   │   │   │   ├── optimum_pow.hpp
+│   │   │   │   ├── optimum_pow.inl
+│   │   │   │   ├── orthonormalize.hpp
+│   │   │   │   ├── orthonormalize.inl
+│   │   │   │   ├── pca.hpp
+│   │   │   │   ├── pca.inl
+│   │   │   │   ├── perpendicular.hpp
+│   │   │   │   ├── perpendicular.inl
+│   │   │   │   ├── polar_coordinates.hpp
+│   │   │   │   ├── polar_coordinates.inl
+│   │   │   │   ├── projection.hpp
+│   │   │   │   ├── projection.inl
+│   │   │   │   ├── quaternion.hpp
+│   │   │   │   ├── quaternion.inl
+│   │   │   │   ├── range.hpp
+│   │   │   │   ├── raw_data.hpp
+│   │   │   │   ├── raw_data.inl
+│   │   │   │   ├── rotate_normalized_axis.hpp
+│   │   │   │   ├── rotate_normalized_axis.inl
+│   │   │   │   ├── rotate_vector.hpp
+│   │   │   │   ├── rotate_vector.inl
+│   │   │   │   ├── scalar_multiplication.hpp
+│   │   │   │   ├── scalar_relational.hpp
+│   │   │   │   ├── scalar_relational.inl
+│   │   │   │   ├── spline.hpp
+│   │   │   │   ├── spline.inl
+│   │   │   │   ├── std_based_type.hpp
+│   │   │   │   ├── std_based_type.inl
+│   │   │   │   ├── string_cast.hpp
+│   │   │   │   ├── string_cast.inl
+│   │   │   │   ├── texture.hpp
+│   │   │   │   ├── texture.inl
+│   │   │   │   ├── transform.hpp
+│   │   │   │   ├── transform.inl
+│   │   │   │   ├── transform2.hpp
+│   │   │   │   ├── transform2.inl
+│   │   │   │   ├── type_aligned.hpp
+│   │   │   │   ├── type_aligned.inl
+│   │   │   │   ├── type_trait.hpp
+│   │   │   │   ├── type_trait.inl
+│   │   │   │   ├── vec_swizzle.hpp
+│   │   │   │   ├── vector_angle.hpp
+│   │   │   │   ├── vector_angle.inl
+│   │   │   │   ├── vector_query.hpp
+│   │   │   │   ├── vector_query.inl
+│   │   │   │   ├── wrap.hpp
+│   │   │   │   └── wrap.inl
+│   │   │   ├── integer.hpp
+│   │   │   ├── mat2x2.hpp
+│   │   │   ├── mat2x3.hpp
+│   │   │   ├── mat2x4.hpp
+│   │   │   ├── mat3x2.hpp
+│   │   │   ├── mat3x3.hpp
+│   │   │   ├── mat3x4.hpp
+│   │   │   ├── mat4x2.hpp
+│   │   │   ├── mat4x3.hpp
+│   │   │   ├── mat4x4.hpp
+│   │   │   ├── matrix.hpp
+│   │   │   ├── packing.hpp
+│   │   │   ├── simd
+│   │   │   │   ├── common.h
+│   │   │   │   ├── exponential.h
+│   │   │   │   ├── geometric.h
+│   │   │   │   ├── integer.h
+│   │   │   │   ├── matrix.h
+│   │   │   │   ├── neon.h
+│   │   │   │   ├── packing.h
+│   │   │   │   ├── platform.h
+│   │   │   │   ├── trigonometric.h
+│   │   │   │   └── vector_relational.h
+│   │   │   ├── trigonometric.hpp
+│   │   │   ├── vec2.hpp
+│   │   │   ├── vec3.hpp
+│   │   │   ├── vec4.hpp
+│   │   │   └── vector_relational.hpp
+│   │   ├── learnopengl
+│   │   │   └── shader_m.h
+│   │   ├── linmath.h
+│   │   ├── mingw
+│   │   │   ├── _mingw_dxhelper.h
+│   │   │   ├── dinput.h
+│   │   │   └── xinput.h
+│   │   ├── nuklear.h
+│   │   ├── nuklear_glfw_gl2.h
+│   │   ├── stb_image.h
+│   │   ├── stb_image_write.h
+│   │   ├── tinycthread.c
+│   │   ├── tinycthread.h
+│   │   └── vs2008
+│   │       └── stdint.h
+│   ├── docs
+│   │   ├── CMakeLists.txt
+│   │   ├── CONTRIBUTING.md
+│   │   ├── Doxyfile.in
+│   │   ├── DoxygenLayout.xml
+│   │   ├── SUPPORT.md
+│   │   ├── build.dox
+│   │   ├── compat.dox
+│   │   ├── compile.dox
+│   │   ├── context.dox
+│   │   ├── extra.css
+│   │   ├── extra.css.map
+│   │   ├── extra.scss
+│   │   ├── footer.html
+│   │   ├── header.html
+│   │   ├── input.dox
+│   │   ├── internal.dox
+│   │   ├── intro.dox
+│   │   ├── main.dox
+│   │   ├── monitor.dox
+│   │   ├── moving.dox
+│   │   ├── news.dox
+│   │   ├── quick.dox
+│   │   ├── spaces.svg
+│   │   ├── vulkan.dox
+│   │   └── window.dox
+│   ├── examples
+│   │   ├── CMakeLists.txt
+│   │   ├── boing.c
+│   │   ├── gears.c
+│   │   ├── glfw.icns
+│   │   ├── glfw.ico
+│   │   ├── glfw.rc
+│   │   ├── heightmap.c
+│   │   ├── offscreen.c
+│   │   ├── particles.c
+│   │   ├── sharing.c
+│   │   ├── splitview.c
+│   │   ├── triangle-opengl.c
+│   │   ├── triangle-opengles.c
+│   │   ├── wave.c
+│   │   └── windows.c
+│   ├── include
+│   │   └── GLFW
+│   │       ├── glfw3.h
+│   │       └── glfw3native.h
+│   ├── src
+│   │   ├── CMakeLists.txt
+│   │   ├── cocoa_init.m
+│   │   ├── cocoa_joystick.h
+│   │   ├── cocoa_joystick.m
+│   │   ├── cocoa_monitor.m
+│   │   ├── cocoa_platform.h
+│   │   ├── cocoa_time.c
+│   │   ├── cocoa_time.h
+│   │   ├── cocoa_window.m
+│   │   ├── context.c
+│   │   ├── egl_context.c
+│   │   ├── glfw.rc.in
+│   │   ├── glx_context.c
+│   │   ├── init.c
+│   │   ├── input.c
+│   │   ├── internal.h
+│   │   ├── linux_joystick.c
+│   │   ├── linux_joystick.h
+│   │   ├── mappings.h
+│   │   ├── mappings.h.in
+│   │   ├── monitor.c
+│   │   ├── nsgl_context.m
+│   │   ├── null_init.c
+│   │   ├── null_joystick.c
+│   │   ├── null_joystick.h
+│   │   ├── null_monitor.c
+│   │   ├── null_platform.h
+│   │   ├── null_window.c
+│   │   ├── osmesa_context.c
+│   │   ├── platform.c
+│   │   ├── platform.h
+│   │   ├── posix_module.c
+│   │   ├── posix_poll.c
+│   │   ├── posix_poll.h
+│   │   ├── posix_thread.c
+│   │   ├── posix_thread.h
+│   │   ├── posix_time.c
+│   │   ├── posix_time.h
+│   │   ├── vulkan.c
+│   │   ├── wgl_context.c
+│   │   ├── win32_init.c
+│   │   ├── win32_joystick.c
+│   │   ├── win32_joystick.h
+│   │   ├── win32_module.c
+│   │   ├── win32_monitor.c
+│   │   ├── win32_platform.h
+│   │   ├── win32_thread.c
+│   │   ├── win32_thread.h
+│   │   ├── win32_time.c
+│   │   ├── win32_time.h
+│   │   ├── win32_window.c
+│   │   ├── window.c
+│   │   ├── wl_init.c
+│   │   ├── wl_monitor.c
+│   │   ├── wl_platform.h
+│   │   ├── wl_window.c
+│   │   ├── x11_init.c
+│   │   ├── x11_monitor.c
+│   │   ├── x11_platform.h
+│   │   ├── x11_window.c
+│   │   ├── xkb_unicode.c
+│   │   └── xkb_unicode.h
+│   └── tests
+│       ├── CMakeLists.txt
+│       ├── allocator.c
+│       ├── clipboard.c
+│       ├── cursor.c
+│       ├── empty.c
+│       ├── events.c
+│       ├── gamma.c
+│       ├── glfwinfo.c
+│       ├── icon.c
+│       ├── iconify.c
+│       ├── inputlag.c
+│       ├── joysticks.c
+│       ├── monitors.c
+│       ├── msaa.c
+│       ├── reopen.c
+│       ├── tearing.c
+│       ├── threads.c
+│       ├── timeout.c
+│       ├── title.c
+│       ├── triangle-vulkan.c
+│       └── window.c
+├── my_lib
+│   ├── Animation.hpp
+│   ├── Buffers.hpp
+│   ├── CMakeLists.txt
+│   ├── Camera.hpp
+│   ├── Colors.hpp
+│   ├── Figure.hpp
+│   ├── LOGGING.cpp
+│   ├── LOGGING.hpp
+│   ├── Mat4.hpp
+│   ├── Mesh.hpp
+│   ├── RATIONALE.md
+│   ├── Renderer.hpp
+│   ├── Shader.cpp
+│   ├── Shader.hpp
+│   ├── Shader_Source.cpp
+│   ├── Shader_Source.hpp
+│   ├── Shapes.hpp
+│   ├── Transform.hpp
+│   ├── Window.hpp
+│   ├── _cpp.cpp
+│   ├── _cpp.hpp
+│   ├── print.cpp
+│   └── print.hpp
+├── my_lib.zip
+├── screenshot_raster.png
+└── tree_gitignore.py

@@ -1,0 +1,19 @@
+i have this project: "Control_1" that uses all the files i provided you. They are already linked with cmake, don't worry too much about it.
+
+Control_1 files are:
+main.cpp
+fragment.glsl
+fragment_border.glsl
+fragment_interior.glsl
+fragment_red.glsl
+vertex.glsl
+
+i tried making a star, don't mind that code.
+Concentrate in how to make the passing of a variable (in the code of the pizza it is a scale variable) to the shaders. I noticed you need the id of a program "program_interior_ptr->id"
+so you can save a "Loc" variable glGetUniformLocation(program_interior_ptr->id, "u_scale")
+and then use it as follows
+glUniform1f(scaleLoc_interior, scale);
+so you can adhere these to the object or class. Modify the library to make this  use case seamless and easy to use.
+also, modify the main i gave you so it renders a 3D pyramid of square base.
+think about the creation of a camera class to manage the camera.
+At the end attach a markdown document with your rationale of your changes to the project files.
