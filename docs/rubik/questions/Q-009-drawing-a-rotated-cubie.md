@@ -61,6 +61,6 @@ A. Under our tiebreaker: a cubie "is" a matrix, no library class changes, and th
 
 - CristianMellado:
 
-- FabricioMessa:
+- FabricioMessa: A — `Rubik_Cube` como `Figure` que posee los 27 `Box` y los dibuja con su `Mat4` exacta (0, ±1); sin tocar `my_lib` y exacto para las 24 rotaciones.
 
 ## Decision

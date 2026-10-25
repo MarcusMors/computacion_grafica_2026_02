@@ -56,6 +56,6 @@ displayed cube always equals the solver's cube. C only if B's extra whole-cube t
 
 - CristianMellado:
 
-- FabricioMessa:
+- FabricioMessa: A — Mostrar la solución tal cual; con Q-011=A la capa media ya aparece al deshacer M/E/S, y si el profesor exige que aparezca siempre se cambia a B.
 
 ## Decision

@@ -35,6 +35,6 @@ B. State machine: `Idle` -> `Turning{ move, progress 0..1 }` -> `Idle`, with a q
 
 - CristianMellado:
 
-- FabricioMessa:
+- FabricioMessa: B — Animar los 9 cubies con `R_layer(angle) * matriz_cubie` y aplicar el movimiento exacto al estado al terminar; `Idle`/`Turning` + cola + smoothstep, asumiendo Q-002=C, Q-004=A y Q-009=A.
 
 ## Decision

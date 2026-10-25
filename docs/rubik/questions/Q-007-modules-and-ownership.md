@@ -34,6 +34,6 @@ Folder: `glfw-master/OwnProjects/rubik_cube/`, with its own `CMakeLists.txt` cop
 
 - CristianMellado:
 
-- FabricioMessa:
+- FabricioMessa: A — Interfaces primero y luego capas en paralelo; yo tomo la capa de vista (figuras, colores, transforms).
 
 ## Decision
