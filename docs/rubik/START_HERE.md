@@ -6,6 +6,11 @@ The questions are already written (see [`questions/`](questions/)); there are 12
 1. **Lead:** you study your 4 questions in depth and answer them.
 2. **Review:** you give your own answer to the other 8, helped by what the lead wrote.
 
+**No question is locked.** Every question file keeps all three answer lines (Marcus, CristianMellado, FabricioMessa), so anybody
+can read and answer any question at any time, not only their own four; "lead" only says who studies it first. The one rule
+stays: write on **your own line only**. Keep the blank line between the answer lines: it lets two people edit the same file in
+parallel without a merge conflict.
+
 ## Before you start (once)
 
 1. You accepted the GitHub invitation to the repository, and your LabCompiler folder is attached to it
@@ -36,7 +41,7 @@ Each question depends on the ones before it, so answer in this order:
 
 If you disagree with a recommendation, say so and why: a short reason is enough.
 
-## Who leads what (Marcus's proposal: first, second and last third; swap among yourselves if you prefer)
+## Who leads what (agreed by Marcus: first, second and last third; Cristian and Fabricio can swap if they prefer)
 
 | lead | questions | theme |
 |------|-----------|-------|
@@ -55,7 +60,8 @@ If you disagree with a recommendation, say so and why: a short reason is enough.
 
 ## Step 2: review (after the three step-1 pull requests are merged)
 
-- `git pull`, new branch `answers/<your-name>-review`.
+- `git pull`, new branch `answers/<your-name>-review`. (If you already have a view on a question you do not lead, you may answer
+  it earlier; the review step is simply when every lead's reasons are available.)
 - On each of the **8 questions you did not lead**, read the lead's line and reason (your agent summarises it), then write your own
   line: `agree with <name>: <letter>`, or a different letter and why. The decision is yours, not the lead's.
 - Pull request titled `answers: <name> review`.
