@@ -1,0 +1,79 @@
+# Adapted from the owner's personal .clang-format, trimmed to what C++/GLSL code here needs
+# (the Java / JavaScript / Objective-C options and deprecated spellings were dropped so it
+# works with current clang-format versions). It describes the style my_lib is already written in:
+#   2 spaces, 120 columns, braces on their OWN line for classes / structs / functions only,
+#   `if (x) { y; }` allowed on one line, `// comment` glued to the code before it.
+Language: Cpp
+Standard: Latest
+IndentWidth: 2
+TabWidth: 8
+UseTab: Never
+ColumnLimit: 120
+MaxEmptyLinesToKeep: 2
+KeepEmptyLinesAtTheStartOfBlocks: true
+
+# Braces
+BreakBeforeBraces: Custom
+BraceWrapping:
+    AfterClass: true
+    AfterControlStatement: Never
+    AfterEnum: false
+    AfterFunction: true
+    AfterNamespace: false
+    AfterStruct: true
+    AfterUnion: false
+    BeforeCatch: false
+    BeforeElse: false
+    IndentBraces: false
+    SplitEmptyFunction: false
+    SplitEmptyNamespace: true
+    SplitEmptyRecord: true
+
+# Short things on one line
+AllowShortBlocksOnASingleLine: Always
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: All
+AllowShortIfStatementsOnASingleLine: WithoutElse
+AllowShortLoopsOnASingleLine: true
+
+# Wrapping and alignment
+AccessModifierOffset: -2
+AlignAfterOpenBracket: DontAlign
+AlignConsecutiveAssignments: None
+AlignConsecutiveDeclarations: None
+AlignEscapedNewlines: Left
+AlignOperands: Align
+AlignTrailingComments: false
+AlwaysBreakBeforeMultilineStrings: true
+BinPackArguments: false
+BinPackParameters: false
+BreakBeforeBinaryOperators: NonAssignment
+BreakBeforeTernaryOperators: true
+BreakConstructorInitializers: BeforeColon
+BreakInheritanceList: BeforeComma
+BreakStringLiterals: true
+ConstructorInitializerIndentWidth: 2
+ContinuationIndentWidth: 2
+Cpp11BracedListStyle: false
+IndentCaseLabels: false
+IndentWrappedFunctionNames: true
+NamespaceIndentation: Inner
+FixNamespaceComments: true
+CompactNamespaces: false
+PointerAlignment: Right
+DerivePointerAlignment: false
+ReflowComments: true
+CommentPragmas: "^ IWYU pragma:"
+
+# Spaces
+SpaceAfterCStyleCast: false
+SpaceAfterTemplateKeyword: false
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeParens: ControlStatements
+SpacesBeforeTrailingComments: 0
+SpacesInContainerLiterals: true
+
+# Include order is NEVER sorted: glad must be included before GLFW (and `_cpp.hpp` pulls glad in),
+# or the OpenGL headers clash.
+SortIncludes: Never
+SortUsingDeclarations: false

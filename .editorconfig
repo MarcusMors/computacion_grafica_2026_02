@@ -1,0 +1,34 @@
+# https://editorconfig.org/
+# Adapted from the owner's personal .editorconfig. Unlike .gitattributes, EditorConfig DOES support {a,b} braces.
+
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# C++ and GLSL: same limit as .clang-format
+[*.{cpp,hpp,h,c,glsl,vert,frag,vs,fs}]
+max_line_length = 120
+
+# Markdown: two trailing spaces mean "line break", so do not trim them
+[*.md]
+trim_trailing_whitespace = false
+
+# Windows scripts are CRLF (see .gitattributes)
+[*.{bat,cmd,ps1}]
+end_of_line = crlf
+
+# CMake files in this repo use 4 spaces
+[{CMakeLists.txt,*.cmake}]
+indent_size = 4
+
+[*.py]
+indent_size = 4
+
+[*.{json,yml,yaml}]
+indent_size = 2

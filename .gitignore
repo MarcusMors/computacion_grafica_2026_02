@@ -90,7 +90,9 @@ Thumbs.db
 # 9. LOCAL TOOL OUTPUT
 # ---------------------------------------------------------------------------
 /_snapshots/
-/.claude/
+# Claude Code: share project skills, keep everybody's local settings and scratch folders private
+/.claude/*
+!/.claude/skills/
 __pycache__/
 *.zip
 

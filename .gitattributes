@@ -1,0 +1,47 @@
+###############################
+# Git line endings            #
+###############################
+# Everything is LF in the repository and in the working tree, so the same files
+# behave the same on Windows, Linux and macOS (and .sh scripts never break).
+#
+# NOTE: git attribute patterns do NOT understand braces. `*.{bat,cmd}` in one line
+# matches nothing, so every extension gets its own line.
+
+* text=auto eol=lf
+
+# Windows scripts must stay CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Unix scripts must stay LF
+*.sh text eol=lf
+
+###############################
+# Binary files (never touch)  #
+###############################
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.icns binary
+*.pdf binary
+*.zip binary
+*.rar binary
+*.7z binary
+*.gz binary
+*.tar binary
+*.exe binary
+*.dll binary
+*.lib binary
+*.a binary
+*.o binary
+*.obj binary
+
+###############################
+# Third-party code            #
+###############################
+# glad is generated and huge: keep it out of diffs and language statistics.
+glfw-master/deps/glad/** linguist-vendored
+glfw-master/deps/glad/** -diff

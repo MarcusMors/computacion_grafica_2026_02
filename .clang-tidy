@@ -1,0 +1,36 @@
+# Adapted from the owner's personal .clang-tidy: everything on, minus the groups that do not apply,
+# plus the checks that fight against normal graphics code. ADVISORY: warnings are never errors here.
+#
+# Disabled on purpose (besides the owner's original list):
+#   magic numbers, short names (x, y, z, u, v), reinterpret_cast / pointer arithmetic (vertex offsets
+#   for glVertexAttribPointer), easily-swappable parameters (Vec3 factories), include-cleaner (glad / GLFW
+#   must be included in a fixed order).
+---
+Checks: "*,
+        -abseil-*,
+        -altera-*,
+        -android-*,
+        -fuchsia-*,
+        -google-*,
+        -llvm*,
+        -zircon-*,
+        -modernize-use-trailing-return-type,
+        -readability-else-after-return,
+        -readability-static-accessed-through-instance,
+        -readability-avoid-const-params-in-decls,
+        -cppcoreguidelines-non-private-member-variables-in-classes,
+        -misc-non-private-member-variables-in-classes,
+        -readability-magic-numbers,
+        -cppcoreguidelines-avoid-magic-numbers,
+        -readability-identifier-length,
+        -cppcoreguidelines-pro-type-reinterpret-cast,
+        -cppcoreguidelines-pro-bounds-pointer-arithmetic,
+        -cppcoreguidelines-pro-bounds-constant-array-index,
+        -bugprone-easily-swappable-parameters,
+        -misc-include-cleaner,
+        -hicpp-*,
+"
+WarningsAsErrors: ''
+# analyse only OUR code, not glad / GLFW / Boost / the compilers
+HeaderFilterRegex: '(my_lib|OwnProjects)/.*'
+FormatStyle: none
