@@ -3,7 +3,7 @@
 - **Topic:** rubik
 - **Status:** open
 - **Opened by:** Marcus's agent (facilitator), 2026-10-25
-- **Needs an answer from:** Marcus, CristianMellado, F_Messa, before Q-002
+- **Needs an answer from:** Marcus, CristianMellado, FabricioMessa, before Q-002
 
 ## Context
 Everything else (state, moves, drawing) depends on this. The standard puzzle is 3x3x3. Smaller (2x2x2) and bigger (4x4x4) cubes exist.
@@ -23,6 +23,6 @@ B, with the promise that only N = 3 is tested and supported.
 ## Answers
 - Marcus:
 - CristianMellado:
-- F_Messa:
+- FabricioMessa:
 
 ## Decision

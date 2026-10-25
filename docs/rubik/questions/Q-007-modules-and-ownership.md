@@ -3,7 +3,7 @@
 - **Topic:** rubik
 - **Status:** open
 - **Opened by:** Marcus's agent (facilitator), 2026-10-25
-- **Needs an answer from:** Marcus, CristianMellado, F_Messa
+- **Needs an answer from:** Marcus, CristianMellado, FabricioMessa
 
 ## Context
 Three people, three agent sessions, one repository. Conflicts are rare when each person owns different files and the interfaces
@@ -29,6 +29,6 @@ Folder: `glfw-master/OwnProjects/rubik_cube/`, with its own `CMakeLists.txt` cop
 ## Answers
 - Marcus (which layer do you take?):
 - CristianMellado:
-- F_Messa:
+- FabricioMessa:
 
 ## Decision

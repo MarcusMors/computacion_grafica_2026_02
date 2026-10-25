@@ -3,7 +3,7 @@
 - **Topic:** rubik
 - **Status:** open
 - **Opened by:** Marcus's agent (facilitator), 2026-10-25
-- **Needs an answer from:** Marcus, CristianMellado, F_Messa
+- **Needs an answer from:** Marcus, CristianMellado, FabricioMessa
 
 ## Context
 A clear finish line keeps a three-person course project from sprawling. Items below, cheapest first.
@@ -29,6 +29,6 @@ B. The solver is out of scope for version 1; if the group wants it later it gets
 ## Answers
 - Marcus:
 - CristianMellado:
-- F_Messa:
+- FabricioMessa:
 
 ## Decision

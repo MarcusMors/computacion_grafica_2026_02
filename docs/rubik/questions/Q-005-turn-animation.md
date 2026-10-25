@@ -3,7 +3,7 @@
 - **Topic:** rubik
 - **Status:** open
 - **Opened by:** Marcus's agent (facilitator), 2026-10-25
-- **Needs an answer from:** Marcus, CristianMellado, F_Messa
+- **Needs an answer from:** Marcus, CristianMellado, FabricioMessa
 
 ## Context
 While a layer turns, 9 cubies move together around the layer's axis and the other 18 stay still. When the turn ends the state
@@ -25,6 +25,6 @@ B. State machine: `Idle` -> `Turning{ move, progress 0..1 }` -> `Idle`, with a q
 ## Answers
 - Marcus:
 - CristianMellado:
-- F_Messa:
+- FabricioMessa:
 
 ## Decision

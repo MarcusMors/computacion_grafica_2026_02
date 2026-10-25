@@ -3,7 +3,7 @@
 - **Topic:** rubik
 - **Status:** open
 - **Opened by:** Marcus's agent (facilitator), 2026-10-25
-- **Needs an answer from:** Marcus, CristianMellado, F_Messa
+- **Needs an answer from:** Marcus, CristianMellado, FabricioMessa
 
 ## Context
 `my_lib` supports keyboard input only (a polled `Camera` for W A S D / Shift / Ctrl / arrows, and one-shot key callbacks).
@@ -26,6 +26,6 @@ A, with the camera orbiting around the cube on the arrow keys (so no clash with 
 ## Answers
 - Marcus:
 - CristianMellado:
-- F_Messa:
+- FabricioMessa:
 
 ## Decision

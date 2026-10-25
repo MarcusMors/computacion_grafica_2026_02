@@ -3,7 +3,7 @@
 - **Topic:** rubik
 - **Status:** open
 - **Opened by:** Marcus's agent (facilitator), 2026-10-25
-- **Needs an answer from:** Marcus, CristianMellado, F_Messa
+- **Needs an answer from:** Marcus, CristianMellado, FabricioMessa
 
 ## Context
 `my_lib` already has `Box` (one flat color per face), `Composite`, `Transform` and a `Renderer` that draws an outline. The
@@ -29,6 +29,6 @@ A first. B later if the group wants a nicer look (it only touches `rubik_view`).
 ## Answers
 - Marcus:
 - CristianMellado:
-- F_Messa:
+- FabricioMessa:
 
 ## Decision

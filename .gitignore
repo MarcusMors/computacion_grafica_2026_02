@@ -117,3 +117,8 @@ __pycache__/
 
 # Third-party sample project with bundled FreeImage libraries (28 MB)
 /glfw-master/OwnProjects/hw0-glfw/
+
+# ---------------------------------------------------------------------------
+# 11. PRIVATE FILES (never published)
+# ---------------------------------------------------------------------------
+my_lib/human_reference_sites_*

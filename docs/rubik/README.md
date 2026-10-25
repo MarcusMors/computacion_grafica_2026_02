@@ -4,7 +4,7 @@
 use, understand and modify, the way the library itself is. The project lives in `glfw-master/OwnProjects/rubik_cube/` (not
 created yet).
 
-- **Team:** Marcus (GitHub `MarcusMors`), CristianMellado, F_Messa.
+- **Team:** Marcus (GitHub `MarcusMors`), CristianMellado, FabricioMessa.
 - **Facilitator:** Marcus's agent writes the questions; everybody answers (see [`../README.md`](../README.md)).
 - **Library rule:** if the project needs something new in `my_lib`, that is a question first and a pull request second.
 
