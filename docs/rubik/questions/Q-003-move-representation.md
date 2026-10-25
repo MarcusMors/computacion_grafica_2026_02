@@ -23,7 +23,9 @@ B.
 
 ## Answers
 - Marcus:
+
 - CristianMellado:
+
 - FabricioMessa:
 
 ## Decision

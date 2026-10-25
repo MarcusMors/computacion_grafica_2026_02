@@ -28,7 +28,9 @@ Folder: `glfw-master/OwnProjects/rubik_cube/`, with its own `CMakeLists.txt` cop
 
 ## Answers
 - Marcus (which layer do you take?):
+
 - CristianMellado:
+
 - FabricioMessa:
 
 ## Decision

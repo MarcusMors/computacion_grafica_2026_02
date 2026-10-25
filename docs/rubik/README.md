@@ -14,6 +14,8 @@ No code yet. First step is the structured interview: answer the questions in [`q
 dependency order: scope, then state, then moves, then rendering, then animation, then controls, then who builds what).
 Use the words in [`GLOSSARY.md`](GLOSSARY.md); add a term there (in a pull request) when you invent one.
 
+**To answer the questions, read [`START_HERE.md`](START_HERE.md).**
+
 ## Proposed layers (to be confirmed by Q-007)
 
 ```

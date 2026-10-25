@@ -28,7 +28,9 @@ B. The solver is out of scope for version 1; if the group wants it later it gets
 
 ## Answers
 - Marcus:
+
 - CristianMellado:
+
 - FabricioMessa:
 
 ## Decision

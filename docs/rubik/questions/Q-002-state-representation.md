@@ -29,7 +29,9 @@ C for the state, plus a function `to_facelets()` (54 colors) used for printing a
 
 ## Answers
 - Marcus:
+
 - CristianMellado:
+
 - FabricioMessa:
 
 ## Decision

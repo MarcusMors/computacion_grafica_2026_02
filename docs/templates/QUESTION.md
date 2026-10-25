@@ -29,7 +29,9 @@ Which option and why. The facilitator's agent proposes; the humans decide.
 Edit only your own line. Say the option letter and a one-line reason.
 
 - Marcus:
+
 - <partner A>:
+
 - <partner B>:
 
 ## Decision

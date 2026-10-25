@@ -24,7 +24,9 @@ B. State machine: `Idle` -> `Turning{ move, progress 0..1 }` -> `Idle`, with a q
 
 ## Answers
 - Marcus:
+
 - CristianMellado:
+
 - FabricioMessa:
 
 ## Decision

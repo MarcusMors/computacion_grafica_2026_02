@@ -28,7 +28,9 @@ A first. B later if the group wants a nicer look (it only touches `rubik_view`).
 
 ## Answers
 - Marcus:
+
 - CristianMellado:
+
 - FabricioMessa:
 
 ## Decision

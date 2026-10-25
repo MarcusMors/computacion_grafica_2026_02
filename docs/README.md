@@ -34,8 +34,9 @@ Templates: [`templates/QUESTION.md`](templates/QUESTION.md), [`templates/ADR.md`
 
 1. The facilitator's agent writes `questions/Q-NNN-...md` (context, options, a recommendation) on a branch `q/NNN-short-title`
    and opens a pull request titled `question: Q-NNN ...`.
-2. Each person answers on their own line (option letter + one-line reason), by editing the file in the PR or by
-   commenting on it. Discussion happens in PR comments.
+2. Each person answers on their own line (option letter + one-line reason), by editing the file on their own branch
+   (`answers/<name>`) and opening a PR, or by commenting. The answer lines are separated by a blank line ON PURPOSE: git reports
+   a conflict when two people edit lines that touch each other. Discussion happens in PR comments.
 3. When every answer is in and you agree, the facilitator's agent writes `adr/NNNN-...md` (status `accepted`), sets the
    question to `decided`, and the PR is merged. Disagreement stays open: talk, then update the answers.
 4. Code pull requests link the question or ADR they implement. If the code needs something not decided yet, stop and

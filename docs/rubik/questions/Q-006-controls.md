@@ -25,7 +25,9 @@ A, with the camera orbiting around the cube on the arrow keys (so no clash with 
 
 ## Answers
 - Marcus:
+
 - CristianMellado:
+
 - FabricioMessa:
 
 ## Decision

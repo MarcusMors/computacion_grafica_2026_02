@@ -22,7 +22,9 @@ B, with the promise that only N = 3 is tested and supported.
 
 ## Answers
 - Marcus:
+
 - CristianMellado:
+
 - FabricioMessa:
 
 ## Decision
