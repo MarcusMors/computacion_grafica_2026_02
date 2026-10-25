@@ -24,8 +24,7 @@ B.
 ## Answers
 - Marcus:
 
-- CristianMellado:
-
+- CristianMellado: Elijo la Opción B: struct Move { Face face; int quarter_turns; } con quarter_turns en {1,2,3} y validación en el constructor. Es elegante y correcto: inverse() es trivial con 4 - quarter_turns, el ángulo es quarter_turns * 90 grados, y un parser simple convierte "R U R' U2" a una lista de Move. Esto hace los tests legibles y evita tener 18 casos en cada switch. Usaré una pequeña máquina de estados en el parser para manejar R, R' y R2.
 - FabricioMessa:
 
 ## Decision

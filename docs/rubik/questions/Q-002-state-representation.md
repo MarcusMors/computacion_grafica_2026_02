@@ -30,7 +30,7 @@ C for the state, plus a function `to_facelets()` (54 colors) used for printing a
 ## Answers
 - Marcus:
 
-- CristianMellado:
+- CristianMellado: Apoyo la Opción C (27 cubies con posición entera (x,y,z) en {-1,0,1} y matriz de rotación entera). Es la decisión correcta para un curso de computación gráfica porque los movimientos son rotaciones 3D reales, no tablas mágicas. La lógica es: rota todos los cubies cuya coordenada en el eje correspondiente sea igual a la capa, 90 grados alrededor de ese eje. Eso es una transformación matricial pura, que es exactamente el tema del curso. Además la animación cae de forma natural porque el estado ya vive en el espacio geométrico. La función to_facelets() resuelve el printing y los tests sin contaminar la estructura principal.
 
 - FabricioMessa:
 

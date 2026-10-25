@@ -25,7 +25,7 @@ B. State machine: `Idle` -> `Turning{ move, progress 0..1 }` -> `Idle`, with a q
 ## Answers
 - Marcus:
 
-- CristianMellado:
+- CristianMellado: Acuerdo total con la Opción B. El flujo es: mientras la animación está en progreso, los 9 cubies de la capa se dibujan con R_layer(progress * 90°) * cubie_transform, y los 18 restantes con su transform normal. Al terminar (progress >= 1.0) se aplica el move exacto al estado y se vuelve a Idle. Esto es multiplicación matricial pura, que es el tema del curso, y evita errores acumulativos de floating-point porque el estado final es exacto. La máquina de estados queda: Idle → Turning{ move, progress 0..1 } → Idle, con una cola de moves pendientes y smoothstep como función de easing.
 
 - FabricioMessa:
 

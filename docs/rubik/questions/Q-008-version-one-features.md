@@ -29,7 +29,7 @@ B. The solver is out of scope for version 1; if the group wants it later it gets
 ## Answers
 - Marcus:
 
-- CristianMellado:
+- CristianMellado: Elijo la Opción B: Minimal + comfort. El undo/redo es casi gratis (guardar moves e invertirlos al revertir) y hace que la app se sienta como un programa real. El scope de V1 sería: dibujar el cubo, girar capas con animación, scramble, reset, undo/redo, historial de movimientos en pantalla y help en pantalla. Fuera de scope V1: solver (requiere algoritmos complejos como Kociemba), mouse dragging (requiere ray casting) y persistencia. El solver puede ser V2 si el grupo lo quiere después.
 
 - FabricioMessa:
 

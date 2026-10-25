@@ -29,7 +29,7 @@ Folder: `glfw-master/OwnProjects/rubik_cube/`, with its own `CMakeLists.txt` cop
 ## Answers
 - Marcus (which layer do you take?):
 
-- CristianMellado:
+- CristianMellado: Acuerdo con la Opción A: por capas con interfaces primero. Mi propuesta de asignación es: Marcus toma la capa de Estado (rubik_state.h/cpp), lógica del cubie, rotaciones, Move, to_facelets() y tests sin OpenGL. Yo (CristianMellado) tomo la capa de Vista (rubik_view.h/cpp), 27 Box figures, transformaciones, colores y rendering. FabricioMessa toma la capa de Animación e Input (main.cpp, rubik_animation.h/cpp), máquina de estados, cola de moves, cámara, controles y help en pantalla. En la segunda mitad rotamos roles para que todos toquemos cada capa.
 
 - FabricioMessa:
 

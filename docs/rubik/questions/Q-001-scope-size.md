@@ -23,7 +23,7 @@ B, with the promise that only N = 3 is tested and supported.
 ## Answers
 - Marcus:
 
-- CristianMellado:
+- CristianMellado: De acuerdo con la Opción B. Usar N como constante no añade complejidad real al código de transformaciones y demuestra mejor estructura. La lógica de rotación de capas es idéntica para cualquier N desde el punto de vista geométrico. La promesa de solo probar y soportar N=3 es clave para no complicar la notación con slice moves interiores que necesitarían cubos 4x4+. En la implementación definiré N=3 como constante pero evitaré asumir N==3 en cualquier lugar donde evitarlo sea trivial.
 
 - FabricioMessa:
 

@@ -29,7 +29,7 @@ A first. B later if the group wants a nicer look (it only touches `rubik_view`).
 ## Answers
 - Marcus:
 
-- CristianMellado:
+- CristianMellado: Inicio con la Opción A: 27 Box figures, cada una con su Transform tomada directamente del estado (Q-002 C). La razón principal es que vemos directamente cómo las matrices de transformación del estado se usan para renderizar, que es el punto del curso. 54 draw calls (fill + outline) es completamente aceptable. Si al final queremos mejor apariencia con stickers insetados migramos a Opción B sin tocar nada del core lógico.
 
 - FabricioMessa:
 

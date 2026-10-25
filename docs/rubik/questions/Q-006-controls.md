@@ -26,8 +26,7 @@ A, with the camera orbiting around the cube on the arrow keys (so no clash with 
 ## Answers
 - Marcus:
 
-- CristianMellado:
-
+- CristianMellado: Elijo la Opción A: solo teclado. No requiere trabajo adicional en la librería y nos permite concentrarnos en el cubo. Los controles serían: U D L R F B para movimientos, Shift + letra para el inverso, 2 + letra para el half turn, flechas para orbitar la cámara, Space para scramble, Backspace para undo, Enter para reset, y H para mostrar ayuda en pantalla. El mouse dragging requeriría ray casting y picking que es demasiado trabajo extra fuera del scope del curso.
 - FabricioMessa:
 
 ## Decision
