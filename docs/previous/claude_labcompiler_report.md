@@ -155,9 +155,23 @@ castle.remove(t);
 * **Key X (right pane):** axes shown = the CUBE's axes (solid X, Y, Z) -> the CAMERA's axes (dashed XC, YC, ZC: right, up, backwards from the camera) -> both. In setup 9 they coincide; in setup 0 they are the same rotated frame; in setup 8 the camera axes sit at V.
 * `Cube` now keeps its exact original coordinates (`vertex`) and the positions in the scene (`pos`, with `transform()` for the rigid move); the table's "world (exact)" column always shows the original exact coordinates of C.
 
+
+
 ---
 
-## 12. Fixes — orthographic on views 9 / 0, meaning of "cube axes"
+## 12. pedagogic_visualizations_look_at_revised (the corrected version)
 
-* **Orthographic was wrong in the exam setups (9) and in c1-at-the-origin (0).** The orthographic window was scaled by the distance to the *target*; in those setups the target is just a point one unit in front of the camera, so the cube was cropped or filled the whole pane. It is now scaled by the depth of the cube's centre (`App::ortho_distance()`), the distance at which it matches the perspective picture. The exact-fraction path uses the same depth as a fraction: in setup 9 the orthographic 2D coordinates are 1/5, 2/5, 3/5, 4/5 (far and near faces coincide).
-* **Key X, "cube axes":** they are now the frame attached to the cube (through its centre, along its edges), labelled with WORLD coordinates. Before, they were the world axes, which in setup 9 coincide exactly with the camera's axes, so cycling showed no difference. Setups 8 and 0: unchanged (the cube is centred on the world origin). Setup 9: the cube's axes are parallel to the camera's but offset to the cube's centre.
+New folder `glfw-master/OwnProjects/pedagogic_visualizations_look_at_revised/` (registered in `OwnProjects/CMakeLists.txt`, own exe). The original folder was left alone. The two-pane window (left: the camera's square view, right: a free camera with the axes always drawn) is unchanged.
+
+**Why a revision.** The professor's slide formula `u = (Px - cx)/(Pz - cz)` with `c = (2,3,5)` and the +-1 cube reproduces the exam numbers exactly. So the exam is the SAME cube and the SAME camera position as the look-at view; the earlier "camera at the origin, small cube" scene was only a scaled equivalent (perspective ignores uniform scale), not the real thing.
+
+**The three views**
+* **8** c1 = (2,3,5) aimed at the origin: translate by -c1 then rotate to face the origin (look-at). Upright picture, symmetric window.
+* **9** the slide activity: same cube C, same position c1, camera NOT aimed: it looks straight down -z (translation only). The slide divides by z with z = (P - c).z negative, so both signs flip: the picture is OpenGL's upright one turned 180 degrees (a real pinhole's film). Modelled as `up = (0,-1,0)` and the window [0,1]x[0,1] on the image plane. The rulers show the slide's (u, v) and the console prints the slide's two steps (`P - c`, then `x/z`, `y/z`) next to OpenGL's `x/-z`.
+* **0** c1 at the origin: view 8 with the whole world moved by its look-at matrix (translation AND rotation); the picture is identical to view 8.
+* **Key I** turns the picture 180 degrees (up -> -up, window mirrored through the origin): slide convention <-> OpenGL upright. In view 9 the numbers become -1/4, -1/2, ...
+
+**Also fixed here**
+* Orthographic is scaled by the depth of the cube's centre (before it used the distance to the target, which is meaningless in views 9 and 0). Exact in view 9: 1/5, 2/5, 3/5, 4/5.
+* Key X: the cube's axes (solid) vs the camera's axes (dashed XC, YC, ZC). In view 9 they are now clearly different (the camera sits at c1 and its x and y axes point the opposite way).
+* Console table gained the column `P - V` (the slide's step 1).
