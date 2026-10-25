@@ -14,6 +14,7 @@ add_subdirectory( Project_11_3D_figures )
 add_subdirectory( Project_12_3D_figures_animated )
 add_subdirectory( Project_13_3D_figures_animated )
 add_subdirectory( pedagogic_visualizations_look_at )
+add_subdirectory( pedagogic_visualizations_look_at_revised )
 add_subdirectory( max_opengl_supported )
 
 

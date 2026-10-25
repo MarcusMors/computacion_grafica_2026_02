@@ -82,15 +82,13 @@ const std::array<Setup, 3> SETUPS{ {
     { milli(2000), milli(3000), milli(5000) }, { milli(0), milli(0), milli(0) }, { milli(0), milli(1000), milli(0) },
     { milli(0), milli(0), milli(0) }, milli(1000), false, true, { milli(0), milli(0), milli(0), milli(0) }, -1 },
 
-  // 1: the classic exercise. The SAME cube C and the SAME camera position V = (2,3,5) as setup 0, but the camera is NOT
-  //    aimed at the origin: it only looks straight down -Z (no rotation, just the translation by -V), and its picture
-  //    is the upside-down / left-right-flipped one of a real pinhole (= a camera rolled 180 degrees: up = (0,-1,0)).
-  //    With the window [0,1]x[0,1] on the image plane at distance 1 this is exactly
-  //        u = (Vx - Px) / (Vz - Pz),   v = (Vy - Py) / (Vz - Pz)
+  // 1: the classic exercise: pinhole at the origin looking down -Z, image plane at distance 1,
+  //    window [0,1]x[0,1] (so the optical axis passes through the window's bottom-left corner),
+  //    cube X in [1/2,3/2], Y in [1,2], Z in [-3,-2]  (in the textbook's +Z convention: depth 2..3).
   //    Result: A(1/4,1/2) B(3/4,1/2) C(1/4,1) D(3/4,1) E(1/6,1/3) F(1/2,1/3) G(1/6,2/3) H(1/2,2/3)
-  { "EXAM: FROM (2,3,5) LOOKING -Z",
-    { milli(2000), milli(3000), milli(5000) }, { milli(2000), milli(3000), milli(4000) }, { milli(0), milli(-1000), milli(0) },
-    { milli(0), milli(0), milli(0) }, milli(1000), false, false,
+  { "EXAM: CAMERA AT ORIGIN",
+    { milli(0), milli(0), milli(0) }, { milli(0), milli(0), milli(-1000) }, { milli(0), milli(1000), milli(0) },
+    { milli(1000), milli(1500), milli(-2500) }, milli(500), true, false,
     { milli(0), milli(1000), milli(0), milli(1000) }, -1 },
 
   // 2: setup 0 seen "from the inside": the look-at matrix of setup 0 is applied to the WHOLE world (cube and axes), so
@@ -288,13 +286,12 @@ Basis camera_basis(const View &v)
 
 Mat4 view_matrix(const View &v) { return mat4_look_at(v.eye, v.target, v.up); }
 
-// An orthographic projection has no vanishing and no "distance": everything keeps its size. To compare it with the
-// perspective picture we give it the size the perspective picture has at `ortho_dist` (see App::ortho_distance()).
-Mat4 projection_matrix(const View &v, const Setup &setup, float ortho_dist)
+Mat4 projection_matrix(const View &v, const Setup &setup)
 {
-  const float dist = ortho_dist;
+  const float dist = length(v.target - v.eye);
   if (setup.use_fov) {
     if (v.perspective) { return mat4_perspective(radians(FOV_DEG), 1.0f, NEAR_PLANE, FAR_PLANE); }
+    // Orthographic: same size on screen as the perspective view has AT THE TARGET.
     const float half = dist * std::tan(radians(FOV_DEG) * 0.5f);
     return mat4_ortho(-half, half, -half, half, NEAR_PLANE, FAR_PLANE);
   }
@@ -303,7 +300,7 @@ Mat4 projection_matrix(const View &v, const Setup &setup, float ortho_dist)
   if (v.perspective) {   // the window is given at distance 1; glFrustum wants it on the near plane
     return mat4_frustum(l * NEAR_PLANE, r * NEAR_PLANE, b * NEAR_PLANE, t * NEAR_PLANE, NEAR_PLANE, FAR_PLANE);
   }
-  return mat4_ortho(l * dist, r * dist, b * dist, t * dist, NEAR_PLANE, FAR_PLANE);// the same window, at depth `dist`
+  return mat4_ortho(l * dist, r * dist, b * dist, t * dist, NEAR_PLANE, FAR_PLANE);// same window, at the target's distance
 }
 
 struct Projected
@@ -380,7 +377,6 @@ struct App
   bool show_rays{ false };   // lines from V to every vertex
   Axes_Shown axes_shown{ Axes_Shown::cube };
   Mat4 scene_from_world{ Mat4::identity() };   // where the original world (and its axes) ended up in the scene
-  Vec3 cube_center{ 0.0f, 0.0f, 0.0f };        // the cube's centre in WORLD coordinates
 
   explicit App(int index) : cube(SETUPS[0].cube_center, SETUPS[0].cube_half, SETUPS[0].exam_labels)
   {
@@ -392,19 +388,6 @@ struct App
 
   const Setup &current() const { return SETUPS[static_cast<std::size_t>(setup)]; }
 
-  // The depth (along the view direction) of the cube's centre: the distance at which the orthographic picture has
-  // the same size as the perspective one. (Not the distance to the "target": in the exam setups the target is just
-  // a point one unit in front of the camera, nowhere near the cube.)
-  float ortho_distance() const
-  {
-    Vec3 c{ 0.0f, 0.0f, 0.0f };
-    for (const Vec3 &p : cube.pos) { c += p; }
-    c = c / 8.0f;
-    const Vec3 to_target = view.target - view.eye;
-    const float d = (length(to_target) > 0.0f) ? dot(normalize(to_target), c - view.eye) : 0.0f;
-    return d > NEAR_PLANE ? d : std::max(length(to_target), 1.0f);
-  }
-
   void select_setup(int index)
   {
     setup = index;
@@ -415,13 +398,11 @@ struct App
       // at the origin looking down -Z, up = +Y, and the cube (and the world axes) are rotated / moved to match.
       const Setup &src = SETUPS[static_cast<std::size_t>(s.camera_space_of)];
       cube = Cube(src.cube_center, src.cube_half, src.exam_labels);
-      cube_center = to_vec3(src.cube_center);
       scene_from_world = mat4_look_at(to_vec3(src.camera), to_vec3(src.target), to_vec3(src.up));
       cube.transform(scene_from_world);
       view = { { 0.0f, 0.0f, 0.0f }, { 0.0f, 0.0f, -1.0f }, { 0.0f, 1.0f, 0.0f }, true };
       up_q = Q3{ milli(0), milli(1000), milli(0) };
     } else {
-      cube_center = to_vec3(s.cube_center);
       cube = Cube(s.cube_center, s.cube_half, s.exam_labels);
       view = { to_vec3(s.camera), to_vec3(s.target), to_vec3(s.up), true };
       up_q = s.up;
@@ -451,8 +432,6 @@ std::optional<Screen_Coords> exact_screen_coords(const App &a)
   const auto len_g = exact_sqrt(dot(g, g));
   if (!len_g || *len_g == 0) { return std::nullopt; }
   const Q3 f = g / *len_g;
-  const Q ortho_ref = dot(f, s.cube_center - s.camera);   // orthographic reference depth: the cube's centre
-  if (!a.view.perspective && ortho_ref <= 0) { return std::nullopt; }
   const Q3 c = cross(f, a.up_q);
   const auto len_c = exact_sqrt(dot(c, c));
   if (!len_c || *len_c == 0) { return std::nullopt; }
@@ -465,7 +444,7 @@ std::optional<Screen_Coords> exact_screen_coords(const App &a)
     const Q3 d = a.cube.vertex[i] - s.camera;
     const Q xe = dot(sv, d), ye = dot(uv, d), ze = dot(f, d);
     if (ze <= 0) { return std::nullopt; }
-    const Q depth = a.view.perspective ? ze : ortho_ref;
+    const Q depth = a.view.perspective ? ze : *len_g;
     out[i] = { (xe / depth - w.left) / (w.right - w.left), (ye / depth - w.bottom) / (w.top - w.bottom) };
   }
   return out;
@@ -507,16 +486,12 @@ void print_camera(const App &a)
               << fraction(-w.left / (w.right - w.left)) << ", " << fraction(-w.bottom / (w.top - w.bottom)) << "): "
               << ((w.left == -w.right && w.bottom == -w.top) ? "its centre" : "NOT its centre: off-axis frustum") << ")\n";
   }
-  if (!a.view.perspective) {
-    std::cout << "  orthographic   : same size as the perspective picture at depth " << decimal(a.ortho_distance(), 3)
-              << " (the cube's centre); nothing shrinks with distance\n";
-  }
 }
 
 void print_table(const App &a)
 {
   const Mat4 V = view_matrix(a.view);
-  const Mat4 P = projection_matrix(a.view, a.current(), a.ortho_distance());
+  const Mat4 P = projection_matrix(a.view, a.current());
   const auto exact = exact_screen_coords(a);
 
   std::cout << "\n---- cube vertices ---------------------------------------------\n"
@@ -566,7 +541,7 @@ void print_setup(const App &a)
   if (moved) {
     std::cout << "  = the setup \"" << src.name << "\" with the WHOLE WORLD moved by its look-at matrix, so that\n"
                  "    the camera is at the origin looking down -Z. The cube is now rotated (it is C in camera space)\n"
-                 "    and the original world axes were carried along (key X in the right pane shows the cube's axes).\n"
+                 "    and the original world axes were carried along (key X in the right pane shows them).\n"
                  "    The left picture is identical to that setup's: P * V * p = P * (I) * (V * p).\n";
   }
   std::cout << "inputs (exact fractions; the code stores them as integers in thousandths):\n"
@@ -581,8 +556,8 @@ void print_keys()
 {
   std::cout << "\n---- keys --------------------------------------------------------\n"
                "  8        setup 0: the camera c1 at (2,3,5) looking at the origin (the default)\n"
-               "  9        setup 1: the professor's / exam setup (same cube, camera at V looking down -Z, rolled 180, off-axis window)\n"
-               "  0        setup 2: c1 AT THE ORIGIN - setup 0 with the whole world moved by its look-at matrix (translation AND rotation)\n"
+               "  9        setup 1: the professor's / exam setup (camera at the origin, off-axis window)\n"
+               "  0        setup 2: c1 AT THE ORIGIN - setup 0 with the whole world moved by its look-at matrix\n"
                "  P        toggle PERSPECTIVE / ORTHOGRAPHIC\n"
                "  M        rulers on the border: SCREEN (2D coordinates 0..1 + grid)  <->  WORLD (x, y, z axes)\n"
                "  L        show / hide the 2D coordinates next to each vertex\n"
@@ -600,8 +575,7 @@ void print_keys()
                "  V        jump the free camera to V looking at the target (then it matches the left pane)\n"
                "  B        back to the bird's-eye start position\n"
                "  O        show / hide the rays from V to every vertex\n"
-               "  X        axes in the right pane: the CUBE's axes (through its centre, labels = world coordinates)\n"
-               "           ->  the CAMERA's axes (dashed)  ->  both\n"
+               "  X        axes in the right pane: the CUBE's axes  ->  the CAMERA's axes  ->  both\n"
                "  ESC      quit\n"
                "(camera position, target, up vector, cube and window are in the SETUPS table at the top of main.cpp)\n";
 }
@@ -874,30 +848,27 @@ void draw_cube(Draw2D &d, const Cube &cube, const Pane &pane, bool show_faces, b
   }
 }
 
-// The axes, ALWAYS drawn, with a tick and a label at every whole number from -5 to 5.
-//   CUBE axes   : the frame ATTACHED TO THE CUBE: through its centre, along its edges (solid X, Y, Z). The labels are
-//                 WORLD coordinates (the line y = 3/2, z = -5/2 is labelled with x), so they read like the cube's
-//                 vertex coordinates. In setups 0 and 2 the cube is centred on the world origin, so this is the world
-//                 frame; in setup 1 the cube's frame is parallel to the camera's but offset; in setup 2 it is rotated.
-//   CAMERA axes : the camera's own axes, dashed, from its position: XC = right, YC = up, ZC = backwards (-forward).
-//                 Labels are camera coordinates.
+// The axes of the scene, ALWAYS drawn, with a tick and a label at every whole number from -5 to 5.
+//   CUBE axes   : the axes of the original world (x, y, z) - where the cube lives. In setups 0 and 1 they are
+//                 the scene's axes; in setup 2 they were moved along with the cube.
+//   CAMERA axes : the camera's own axes, drawn dashed from its position: XC = right, YC = up, ZC = backwards (-forward).
+//                 In setup 2 they coincide with the scene's axes; in setup 1 they coincide with the cube's.
 void draw_free_axes(Draw2D &d, const Pane &pane, const App &a)
 {
-  // value v along the axis is the point  origin + dir * (v - offset)
-  struct Axis_Draw { Vec3 origin, dir; std::string name; Vec3 color; bool dashed; float offset; };
+  struct Axis_Draw { Vec3 origin, dir; std::string name; Vec3 color; bool dashed; };
   std::vector<Axis_Draw> axes;
   if (a.axes_shown != Axes_Shown::camera) {
     const Mat4 &m = a.scene_from_world;
-    const Vec3 c = transform_point(m, a.cube_center);
-    axes.push_back({ c, transform_direction(m, { 1, 0, 0 }), "X", AXIS_X, false, a.cube_center.x });
-    axes.push_back({ c, transform_direction(m, { 0, 1, 0 }), "Y", AXIS_Y, false, a.cube_center.y });
-    axes.push_back({ c, transform_direction(m, { 0, 0, 1 }), "Z", AXIS_Z, false, a.cube_center.z });
+    const Vec3 o = transform_point(m, { 0, 0, 0 });
+    axes.push_back({ o, transform_direction(m, { 1, 0, 0 }), "X", AXIS_X, false });
+    axes.push_back({ o, transform_direction(m, { 0, 1, 0 }), "Y", AXIS_Y, false });
+    axes.push_back({ o, transform_direction(m, { 0, 0, 1 }), "Z", AXIS_Z, false });
   }
   const Basis basis = camera_basis(a.view);
   if (a.axes_shown != Axes_Shown::cube && basis.valid) {
-    axes.push_back({ a.view.eye, basis.right, "XC", AXIS_X, true, 0.0f });
-    axes.push_back({ a.view.eye, basis.up, "YC", AXIS_Y, true, 0.0f });
-    axes.push_back({ a.view.eye, -basis.forward, "ZC", AXIS_Z, true, 0.0f });
+    axes.push_back({ a.view.eye, basis.right, "XC", AXIS_X, true });
+    axes.push_back({ a.view.eye, basis.up, "YC", AXIS_Y, true });
+    axes.push_back({ a.view.eye, -basis.forward, "ZC", AXIS_Z, true });
   }
 
   const int sc = pane.text_scale;
@@ -909,20 +880,19 @@ void draw_free_axes(Draw2D &d, const Pane &pane, const App &a)
   std::vector<Label> labels;
 
   for (const Axis_Draw &ax : axes) {
-    auto at_value = [&](float v) { return ax.origin + ax.dir * (v - ax.offset); };
-    if (const auto seg = pane_segment(pane, at_value(-ext), at_value(ext))) {
+    if (const auto seg = pane_segment(pane, ax.origin - ax.dir * ext, ax.origin + ax.dir * ext)) {
       if (ax.dashed) { d.dashed_line(seg->first, seg->second, ax.color, 1.5f, 9.0f, 5.0f); }
       else { d.line(seg->first, seg->second, ax.color, 1.5f); }
     }
-    if (const auto tip = pane_point(pane, at_value(ext + 0.45f))) {
+    if (const auto tip = pane_point(pane, ax.origin + ax.dir * (ext + 0.45f))) {
       d.text(ax.name, { tip->x, tip->y - Draw2D::text_height(sc + 1) * 0.5f }, ax.color, sc + 1, Text_Align::center);
     }
     const int n = FREE_AXIS_EXTENT_MILLI / FREE_TICK_STEP_MILLI;
     for (int k = -n; k <= n; ++k) {
       const Q value = milli(static_cast<long long>(k) * FREE_TICK_STEP_MILLI);   // exact
-      const float v = to_float(value);
-      const auto at = pane_point(pane, at_value(v));
-      const auto before = pane_point(pane, at_value(v - 0.05f)), after = pane_point(pane, at_value(v + 0.05f));
+      const Vec3 p = ax.origin + ax.dir * to_float(value);
+      const auto at = pane_point(pane, p);
+      const auto before = pane_point(pane, p - ax.dir * 0.05f), after = pane_point(pane, p + ax.dir * 0.05f);
       if (!at || !before || !after) { continue; }
       Vec2 dir = *after - *before;
       const float l = length(dir);
@@ -970,7 +940,7 @@ void draw_setup_camera(Draw2D &d, const Pane &pane, const App &a)
   float far_depth = 1.0f;
   for (const Vec3 &v : a.cube.pos) { far_depth = std::max(far_depth, dot(b.forward, v - eye)); }
   far_depth += 0.3f;
-  const float dist = a.ortho_distance();
+  const float dist = length(a.view.target - eye);
 
   // corner (wx, wy) of the window, `z` in front of the camera. Perspective: the window grows with z.
   // Orthographic: the window keeps its size (that of the target's distance).
@@ -1017,7 +987,7 @@ void draw_left_pane(App &a, const Rect &rect)
 {
   const Frame fr = make_frame(rect);
   const Mat4 V = view_matrix(a.view);
-  const Mat4 P = projection_matrix(a.view, a.current(), a.ortho_distance());
+  const Mat4 P = projection_matrix(a.view, a.current());
   const Basis basis = camera_basis(a.view);
   const auto exact = exact_screen_coords(a);
   Draw2D &d = a.draw;
@@ -1098,7 +1068,7 @@ void draw_right_pane(App &a, const Rect &rect)
   d.text("FREE CAMERA", { rect.x + 10.0f, top - h }, colors::white, sc);
   d.text("POS " + decimal(a.free_cam.position, 1), { rect.x + 10.0f, top - 2.2f * h }, colors::light_grey, sc);
   d.text("FOV " + decimal(a.free_cam.fov_y_deg, 0) + "  (V: GO TO V)", { rect.x + 10.0f, top - 3.4f * h }, colors::light_grey, sc);
-  d.text(std::string("AXES (X): ") + (a.axes_shown == Axes_Shown::cube ? "CUBE (THROUGH ITS CENTER)" : a.axes_shown == Axes_Shown::camera ? "CAMERA (DASHED)" : "CUBE + CAMERA (DASHED)"),
+  d.text(std::string("AXES (X): ") + (a.axes_shown == Axes_Shown::cube ? "CUBE" : a.axes_shown == Axes_Shown::camera ? "CAMERA (DASHED)" : "CUBE + CAMERA (DASHED)"),
          { rect.x + 10.0f, top - 4.6f * h }, colors::light_grey, sc);
   d.line({ rect.x, rect.y }, { rect.x, rect.y + rect.h }, FRAME_COLOR, 2.0f);   // the divider
 }
@@ -1208,9 +1178,8 @@ void key_callback(GLFWwindow *window, int key, int scancode, int action, int mod
           std::cout << "  (this setup's window is off-axis, so the free camera's symmetric view shows it as the part\n"
                        "   of its picture from the centre to the top-right corner)\n";
         }
-        if (a.view.up.x != 0.0f || a.view.up.z != 0.0f || a.view.up.y <= 0.0f) {
-          std::cout << "  (the free camera cannot roll: it always keeps +Y up, so this up vector " << decimal(a.view.up)
-                    << " is not reproduced: the free picture is the upright one)\n";
+        if (a.up_exact == false || !(a.view.up.x == 0.0f && a.view.up.z == 0.0f)) {
+          std::cout << "  (the free camera cannot roll: it always keeps +Y up, so a different up vector is not reproduced)\n";
         }
       }
       break;
