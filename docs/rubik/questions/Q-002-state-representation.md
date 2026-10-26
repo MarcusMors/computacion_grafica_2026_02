@@ -44,7 +44,7 @@ C for the state, plus a function `to_facelets()` (54 colors) used for printing, 
 into a drawing is Q-009.
 
 ## Answers
-- Marcus:
+- Marcus: C, because it also allows the centers and the moving middle layers/slices.
 
 - CristianMellado:
 

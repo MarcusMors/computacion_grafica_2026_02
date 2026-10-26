@@ -31,7 +31,7 @@ B. State machine: `Idle` -> `Turning{ move, progress 0..1 }` -> `Idle`, with a q
 (smoothstep, three lines, written in `rubik_animation` rather than added to the library unless someone prefers a library PR).
 
 ## Answers
-- Marcus:
+- Marcus: B (Idle / Turning + queue of pending moves). Linear speed, no easing yet: it is only cosmetic and makes the code harder to take over and understand.
 
 - CristianMellado:
 

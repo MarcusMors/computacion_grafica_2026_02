@@ -52,7 +52,7 @@ Ask the teacher first. If the middle layer need not appear inside the solution: 
 displayed cube always equals the solver's cube. C only if B's extra whole-cube turns turn out to look bad in the demo.
 
 ## Answers
-- Marcus:
+- Marcus: C (my own proposal).
 
 - CristianMellado:
 

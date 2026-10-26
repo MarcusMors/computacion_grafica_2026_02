@@ -57,7 +57,7 @@ std::optional<Mat4> rotation_override;   // when set, rotation_matrix() returns 
 A. Under our tiebreaker: a cubie "is" a matrix, no library class changes, and the loop above is the whole story.
 
 ## Answers
-- Marcus:
+- Marcus: A, as long as the camera stays safe from gimbal lock and the cube gets exact full 90 degree turns.
 
 - CristianMellado:
 
