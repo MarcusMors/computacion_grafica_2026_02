@@ -22,3 +22,33 @@ Use these words in code, comments, commits and questions. If two words mean the 
 | **legal state** | reachable from the solved state by moves. Peeling off and re-sticking stickers can make an illegal one |
 | **turn animation** | the motion of one layer from 0 to 90 degrees (or 180) over a short time |
 | **world axes in our program** | OpenGL convention: +X right, +Y up, camera looks down -Z. So **R = +X, L = -X, U = +Y, D = -Y, F = +Z (towards the camera), B = -Z**. Careful: `Frame::forward` in `my_lib` is -Z (where the camera looks), the opposite of the cube's **F** |
+
+## Move letters, spelled out (for readers who are not cubers)
+
+A **letter** names one layer of the cube. The **move** is "turn that layer a quarter turn **clockwise, looking at it from
+outside the cube**". A `'` after the letter ("prime") means counter-clockwise; a `2` means a half turn (the direction does
+not matter then). A sequence such as `R U R' U2` is read left to right.
+
+Our axes (see "world axes" above): X to the right, Y up, Z towards the viewer.
+
+| letter | stands for | the layer it turns | where (our axes) | direction: clockwise seen from... |
+|--------|------------|--------------------|------------------|-----------------------------------|
+| `R` | **R**ight | right face layer | x = +1 | the right |
+| `L` | **L**eft | left face layer | x = -1 | the left |
+| `U` | **U**p | top face layer | y = +1 | above |
+| `D` | **D**own | bottom face layer | y = -1 | below |
+| `F` | **F**ront | face layer towards the viewer | z = +1 | the front |
+| `B` | **B**ack | face layer away from the viewer | z = -1 | behind |
+| `M` | **M**iddle | the layer between L and R | x = 0 | the left (turns like `L`) |
+| `E` | **E**quator | the layer between U and D | y = 0 | below (turns like `D`) |
+| `S` | **S**tanding | the layer between F and B | z = 0 | the front (turns like `F`) |
+| `x` `y` `z` | (lower case) | the whole cube, all three layers of one axis | x / y / z | the right / above / the front (like `R` / `U` / `F`) |
+
+- A letter is a **face or layer**, and writing it in a sequence makes it an **action**: `R` means "turn the Right layer".
+  `D` is the Down layer, not the direction "downwards".
+- Because every letter looks at its own layer from outside, `R` and `L` (and `U`/`D`, `F`/`B`) turn in **opposite** directions in
+  space. That is why `L` can feel backwards: it is clockwise as seen from the left.
+- `M`, `E`, `S` sit between a pair of faces and copy the direction of `L`, `D`, `F`.
+- **quarter turn**: 90 degrees. **half turn**: 180 degrees. `R'` = `R R R`; `R2` = `R R`.
+- Looking at the R face from outside, the X axis points at you (the "dot in a circle" of an electrical diagram); looking at the
+  L face from outside it points away (the "cross in a circle"). That is the whole reason their directions are mirrored.
