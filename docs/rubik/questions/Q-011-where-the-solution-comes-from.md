@@ -67,6 +67,6 @@ real solver; switching is one function because the rest of the program only know
 
 - CristianMellado:
 
-- FabricioMessa:
+- FabricioMessa: A — Deshacer el historial: guardar los movimientos desde resuelto y devolverlos invertidos y en orden inverso; sin código externo y funciona con M/E/S, asumiendo que el profesor acepta el unscramble.
 
 ## Decision

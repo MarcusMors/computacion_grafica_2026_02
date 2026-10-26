@@ -48,6 +48,6 @@ into a drawing is Q-009.
 
 - CristianMellado:
 
-- FabricioMessa:
+- FabricioMessa: C — 27 cubies con posición y matriz de rotación enteras; los stickers se derivan y `to_facelets()` sirve para imprimir, testear y alimentar al solver.
 
 ## Decision

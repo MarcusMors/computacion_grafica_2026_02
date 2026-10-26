@@ -31,6 +31,6 @@ tiebreaker the simpler reading wins. Only N = 3 is built, tested and supported.
 
 - CristianMellado:
 
-- FabricioMessa:
+- FabricioMessa: A — Solo 3x3x3, con 3 como constante con nombre y coordenadas -1, 0, +1; no pagamos generalidad para tamaños que no probamos.
 
 ## Decision

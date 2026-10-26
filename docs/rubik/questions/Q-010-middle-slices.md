@@ -38,6 +38,6 @@ B, because the course asks for it. The extra cost is small: the `Face` list gets
 
 - CristianMellado:
 
-- FabricioMessa:
+- FabricioMessa: B — Caras + capas medias (27 movimientos); cumple el requisito del curso y el estado no cambia, solo añade M/E/S y la capa 0.
 
 ## Decision

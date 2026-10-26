@@ -39,6 +39,6 @@ B.
 
 - CristianMellado:
 
-- FabricioMessa:
+- FabricioMessa: B — `Move{Face, quarter_turns}` con 1..3; inverso `4-q`, ángulo `-90*q` sobre el eje exterior y `parse`/`to_string` para tests con notación.
 
 ## Decision

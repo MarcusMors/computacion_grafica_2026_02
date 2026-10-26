@@ -42,6 +42,6 @@ inside `main.cpp` only.
 
 - CristianMellado:
 
-- FabricioMessa:
+- FabricioMessa: A — Teclado U/D/L/R/F/B + M/E/S (Shift = antihorario, 2 = medio giro), flechas orbitan, Space scramble, Enter solve, Backspace undo, Delete reset; sin `process_keyboard()` y la órbita en `main.cpp`.
 
 ## Decision

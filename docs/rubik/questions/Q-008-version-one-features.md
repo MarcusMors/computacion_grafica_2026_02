@@ -43,6 +43,6 @@ B now, and C once the solving demo works (it only touches the animation queue). 
 
 - CristianMellado:
 
-- FabricioMessa:
+- FabricioMessa: B — Lo fijo del curso + undo/redo, historial de movimientos y ayuda en pantalla; C se añade después si la demo lo pide.
 
 ## Decision

@@ -48,6 +48,6 @@ A first. B later if the group wants a nicer look (it only touches `rubik_view`).
 
 - CristianMellado:
 
-- FabricioMessa:
+- FabricioMessa: A — 27 `Box`, uno por cubie, con las caras con sticker de color y el resto negro; se construyen una vez y solo cambia su pose.
 
 ## Decision
