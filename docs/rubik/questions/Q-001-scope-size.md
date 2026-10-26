@@ -27,7 +27,7 @@ A. I first wrote B, assuming the 2x2x2 was nearly free; checking it against Q-00
 tiebreaker the simpler reading wins. Only N = 3 is built, tested and supported.
 
 ## Answers
-- Marcus:
+- Marcus: B, mientras no añada complejidad, está bien que admita variabilidad en el tamaño del cubo. Porque a veces en el examen nos puede pedir que hagamos un cubo 2x2 o 2x3 o 4x2 una variación pequeña por molestar (al menos en la creación y animación del cubo, resolver esas variaciones queda absolutamente fuera de orden).
 
 - CristianMellado:
 

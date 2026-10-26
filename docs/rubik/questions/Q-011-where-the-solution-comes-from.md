@@ -63,7 +63,7 @@ A first, behind `solve()`: it works in a day and the demo (including the middle 
 real solver; switching is one function because the rest of the program only knows `solve()`. C and D are not recommended.
 
 ## Answers
-- Marcus:
+- Marcus: Empecemos con A, and after having a good cube, doing B
 
 - CristianMellado:
 

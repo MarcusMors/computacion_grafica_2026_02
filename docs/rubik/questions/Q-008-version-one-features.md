@@ -39,7 +39,7 @@ The animation is a queue of moves (Q-005): pause = stop taking moves from the qu
 B now, and C once the solving demo works (it only touches the animation queue). The apostrophe glyph is part of every option.
 
 ## Answers
-- Marcus:
+- Marcus: B
 
 - CristianMellado:
 

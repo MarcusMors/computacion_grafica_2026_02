@@ -30,7 +30,7 @@ A, and rotate the owners for the second half so everybody touches every layer. N
 Folder: `glfw-master/OwnProjects/rubik_cube/`, with its own `CMakeLists.txt` copied from an existing project.
 
 ## Answers
-- Marcus (which layer do you take?):
+- Marcus (which layer do you take?): A jajaja.
 
 - CristianMellado:
 

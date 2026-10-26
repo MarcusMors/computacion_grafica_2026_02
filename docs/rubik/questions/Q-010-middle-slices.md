@@ -34,7 +34,7 @@ What changes when the middle layer moves:
 B, because the course asks for it. The extra cost is small: the `Face` list gets three entries and the layer coordinate 0 is used.
 
 ## Answers
-- Marcus: B. The middle layer must turn too (course requirement, said by Marcus in chat on 2026-10-25).
+- Marcus: B
 
 - CristianMellado:
 

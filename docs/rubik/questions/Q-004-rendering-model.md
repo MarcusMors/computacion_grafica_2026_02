@@ -44,7 +44,7 @@ only its pose (Q-002 C), so each `Box` is built once at start. Who owns the 27 b
 A first. B later if the group wants a nicer look (it only touches `rubik_view`).
 
 ## Answers
-- Marcus:
+- Marcus: I would say option A. Because we can keep improving the library and as my partners said, we might start with it and then move or adapt as we need. The thing is to allow the student see the library and use it and understand it.
 
 - CristianMellado:
 

@@ -38,7 +38,7 @@ A, with the camera orbiting around the cube on the arrow keys (so no clash with 
 inside `main.cpp` only.
 
 ## Answers
-- Marcus:
+- Marcus: A, solo teclado. Sobre qué teclas aún está abierto eso. Hice una propuesta en una pregunta anterior.
 
 - CristianMellado:
 
